@@ -33,7 +33,7 @@
 					$.ajax({
 						url : "listUsersNotInRoleAjax",
 						type : "POST",
-						data : {rid : '${role.id}'},
+						data : {rid : '${role.roleId}'},
 						success : function(data) {
 							vum1.datas = data.result;
 						}
@@ -52,7 +52,7 @@
 					$.ajax({
 						url : "listUsersInRoleAjax",
 						type : "POST",
-						data : {rid : '${role.id}'},
+						data : {rid : '${role.roleId}'},
 						success : function(data) {
 							vum2.datas = data.result;
 						}
@@ -103,14 +103,14 @@
 	<div class="container-fluid" align="center">
 		<p align="left">
 			<a href="listRoles.jsp">所有角色</a>>>
-			<a href="listUsersInRole?rid=${role.id}">${role.name }</a>
+			<a href="listUsersInRole?rid=${role.roleId}">${role.role }</a>
 			<button class="btn btn-primary" onClick="add();">添加用户</button>
 			<button class="btn btn-primary" onClick="del();">删除用户</button>
 		</p>
 		<div id="app1" class="col-sm-6">
 			<p>候选用户</p>
 			<form id="form-app1" action="addUsersToRoleAjax" method="post">
-			<input type="hidden" name="rid" value="${role.id }">
+			<input type="hidden" name="rid" value="${role.roleId }">
 			<table class="table table-hover">
 				<tr>
 					<th><input type="checkbox" onclick="checkAll(this)">全选</th>
@@ -127,7 +127,7 @@
 		<div id="app2" class="col-sm-6">
 			<p>已选用户</p>
 			<form id="form-app2" action="delUsersFromRoleAjax" method="post">
-			<input type="hidden" name="rid" value="${role.id }">
+			<input type="hidden" name="rid" value="${role.roleId }">
 			<table class="table table-hover">
 				<tr>
 					<th><input type="checkbox" onclick="checkAll(this)">全选</th>

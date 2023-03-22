@@ -127,8 +127,8 @@
 	<div class="container-fluid" align="center">
 		<div class="form-group" style="text-align: left">
 			<form id="searchForm">
-				<input type="hidden" name="columns" value="c_username">
-				<input type="hidden" name="columns" value="c_name">
+				<input type="hidden" name="columns" value="username">
+				<input type="hidden" name="columns" value="name">
 				<input type="hidden" name="operators" value="like">
 				<input type="hidden" name="operators" value="like">
 				<input type="hidden" name="orders" value="none">

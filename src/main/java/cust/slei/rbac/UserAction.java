@@ -51,7 +51,7 @@ public class UserAction extends AbstractController {
 	@RequestMapping("/adm/users/listAjax")
 	public String list(int rows, int page, Search search, Model model) {
 		String sql = search.buildSQL(userDAO2);
-		sql += " order by c_username asc";
+		sql += " order by username asc";
 		Page mlpage = PageFactory.getPage();
 		mlpage.setPageNum(page);
 		mlpage.setRecordNum(rows);

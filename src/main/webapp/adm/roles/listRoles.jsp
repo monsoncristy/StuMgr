@@ -119,16 +119,16 @@
 					<form id="addForm" method="post" action="" class="form-horizontal">
 						<div class="modal-body">
 							<div class="form-group">
-								<label for="id" class="col-sm-3 control-label">角色代码</label>
+								<label for="roleId" class="col-sm-3 control-label">角色代码</label>
 								<div class="col-sm-9">
-									<input type="text" name="id" id="id" class="form-control"
+									<input type="text" name="roleId" id="roleId" class="form-control"
 										placeholder="角色代码">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="name" class="col-sm-3 control-label">角色名称</label>
+								<label for="role" class="col-sm-3 control-label">角色名称</label>
 								<div class="col-sm-9">
-									<input type="text" name="name" id="name" class="form-control"
+									<input type="text" name="role" id="role" class="form-control"
 										placeholder="角色名称">
 								</div>
 							</div>
@@ -151,8 +151,8 @@
 					<th>操作</th>
 				</tr>
 				<tr v-for="data in datas">
-					<td>{{data.id}}</td>
-					<td>{{data.name}}</td>
+					<td>{{data.roleId}}</td>
+					<td>{{data.role}}</td>
 					<td><button title="编辑角色信息"
 							@click="load(data)">
 							<span class="glyphicon glyphicon-edit"></span>
@@ -160,10 +160,10 @@
 						<button title="删除角色" @click="del(data.id);">
 							<span class="glyphicon glyphicon-remove"></span>
 						</button>
-						<button title="管理权限" @click="location.href='listPermsInRole?rid=' + data.id">
+						<button title="管理权限" @click="location.href='listPermsInRole?roleId=' + data.roleId">
 							<span class="glyphicon glyphicon-th"></span>
 						</button>
-						<button title="管理用户" @click="location.href='listUsersInRole?rid=' + data.id">
+						<button title="管理用户" @click="location.href='listUsersInRole?roleId=' + data.roleId">
 							<span class="glyphicon glyphicon-user"></span>
 						</button>
 					</td>

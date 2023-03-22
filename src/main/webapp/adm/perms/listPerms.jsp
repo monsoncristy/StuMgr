@@ -137,16 +137,16 @@
 					<form id="addForm" method="post" action="" class="form-horizontal">
 						<div class="modal-body">
 							<div class="form-group">
-								<label for="id" class="col-sm-3 control-label">权限代码</label>
+								<label for="permId" class="col-sm-3 control-label">权限代码</label>
 								<div class="col-sm-9">
-									<input type="text" name="id" id="id" class="form-control"
+									<input type="text" name="permId" id="permId" class="form-control"
 										placeholder="权限代码">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="name" class="col-sm-3 control-label">权限名称</label>
+								<label for="perm" class="col-sm-3 control-label">权限名称</label>
 								<div class="col-sm-9">
-									<input type="text" name="name" id="name" class="form-control"
+									<input type="text" name="perm" id="perm" class="form-control"
 										placeholder="权限名称">
 								</div>
 							</div>
@@ -168,8 +168,8 @@
 					<th>操作</th>
 				</tr>
 				<tr v-for="data in datas">
-					<td>{{data.id}}</td>
-					<td>{{data.name}}</td>
+					<td>{{data.permId}}</td>
+					<td>{{data.perm}}</td>
 					<td><button title="编辑权限信息"
 							@click="load(data)">
 							<span class="glyphicon glyphicon-edit"></span>

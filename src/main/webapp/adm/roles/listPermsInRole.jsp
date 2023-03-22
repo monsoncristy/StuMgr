@@ -33,7 +33,7 @@
 					$.ajax({
 						url : "listPermsNotInRoleAjax",
 						type : "POST",
-						data : {rid : '${role.id}'},
+						data : {rid : '${role.roleId}'},
 						success : function(data) {
 							vum1.datas = data.result;
 						}
@@ -52,7 +52,7 @@
 					$.ajax({
 						url : "listPermsInRoleAjax",
 						type : "POST",
-						data : {rid : '${role.id}'},
+						data : {rid : '${role.roleId}'},
 						success : function(data) {
 							vum2.datas = data.result;
 						}
@@ -103,14 +103,14 @@
 	<div class="container-fluid" align="center">
 		<p align="left">
 			<a href="listRoles.jsp">所有角色</a>>>
-			<a href="listPermsInRole?rid=${role.id}">${role.name }</a>
+			<a href="listPermsInRole?rid=${role.roleId}">${role.role }</a>
 			<button class="btn btn-primary" onClick="add();">添加权限</button>
 			<button class="btn btn-primary" onClick="del();">删除权限</button>
 		</p>
 		<div id="app1" class="col-sm-6">
 			<p>候选权限</p>
 			<form id="form-app1" action="addPermsToRoleAjax" method="post">
-			<input type="hidden" name="rid" value="${role.id }">
+			<input type="hidden" name="rid" value="${role.roleId }">
 			<table class="table table-hover">
 				<tr>
 					<th><input type="checkbox" onclick="checkAll(this)">全选</th>
@@ -118,16 +118,16 @@
 					<th>权限名称</th>
 				</tr>
 				<tr v-for="data in datas">
-					<td><input type="checkbox" name="pids" :value="data.id"></td>
-					<td>{{data.id}}</td>
-					<td>{{data.name}}</td>
+					<td><input type="checkbox" name="pids" :value="data.permId"></td>
+					<td>{{data.permId}}</td>
+					<td>{{data.perm}}</td>
 			</table>
 			</form>
 		</div>
 		<div id="app2" class="col-sm-6">
 			<p>已选权限</p>
 			<form id="form-app2" action="delPermsFromRoleAjax" method="post">
-			<input type="hidden" name="rid" value="${role.id }">
+			<input type="hidden" name="rid" value="${role.roleId }">
 			<table class="table table-hover">
 				<tr>
 					<th><input type="checkbox" onclick="checkAll(this)">全选</th>
@@ -135,9 +135,9 @@
 					<th>权限名称</th>
 				</tr>
 				<tr v-for="data in datas">
-					<td><input type="checkbox" name="pids" :value="data.id"></td>
-					<td>{{data.id}}</td>
-					<td>{{data.name}}</td>
+					<td><input type="checkbox" name="pids" :value="data.permId"></td>
+					<td>{{data.permId}}</td>
+					<td>{{data.perm}}</td>
 			</table>
 			</form>
 		</div>

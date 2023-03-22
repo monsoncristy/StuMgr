@@ -45,7 +45,7 @@ public class RoleAction extends AbstractController {
     @RequiresPermissions({"jsgl"})
     @RequestMapping(value={"/adm/roles/listRolesAjax"})
 	public String listRolesAjax(Model model){
-    	List<Role> roles = roleDAO.loadMore(" order by c_id asc", null);
+    	List<Role> roles = roleDAO.loadMore(" order by role_id asc", null);
     	model.addAttribute("result", roles);
 		return "json";
 	}
@@ -82,16 +82,16 @@ public class RoleAction extends AbstractController {
     
     @RequiresPermissions({"jsgl"})
     @RequestMapping("/adm/roles/listPermsInRole")
-    public String listPermsInRole(String rid, Model model){
-    	Role r = roleDAO.loadOne(new Object[] {rid});
+    public String listPermsInRole(String roleId, Model model){
+    	Role r = roleDAO.loadOne(new Object[] {roleId});
     	model.addAttribute("role", r);
         return "adm/roles/listPermsInRole";
     }
     
     @RequiresPermissions({"jsgl"})
     @RequestMapping("/adm/roles/listUsersInRole")
-    public String listUsersInRole(String rid, Model model){
-    	Role r = roleDAO.loadOne(new Object[] {rid});
+    public String listUsersInRole(String roleId, Model model){
+    	Role r = roleDAO.loadOne(new Object[] {roleId});
     	model.addAttribute("role", r);
         return "adm/roles/listUsersInRole";
     }
@@ -139,7 +139,7 @@ public class RoleAction extends AbstractController {
     public String listPermsNotInRole(String rid, Model model){
     	PermsNotInRoleSearch search = new PermsNotInRoleSearch();
     	ListTemplate lt = permissionDAO.getLt();
-    	String sql = search.buildSQL(lt) + " order by c_id asc";
+    	String sql = search.buildSQL(lt) + " order by perm_id asc";
     	List<?> perms = jt.query(sql, new Object[] {rid}, lt);
         model.addAttribute("result", perms);
         return "json";
@@ -150,7 +150,7 @@ public class RoleAction extends AbstractController {
     public String listPermsInRoleAjax(String rid, Model model){
     	PermsInRoleSearch search = new PermsInRoleSearch();
     	ListTemplate lt = permissionDAO.getLt();
-    	String sql = search.buildSQL(lt) + " order by c_id asc";
+    	String sql = search.buildSQL(lt) + " order by perm_id asc";
     	List<?> perms = jt.query(sql, new Object[] {rid}, lt);
         model.addAttribute("result", perms);
         return "json";
@@ -187,7 +187,7 @@ public class RoleAction extends AbstractController {
     @RequestMapping("/adm/roles/listUsersNotInRoleAjax")
     public String listUsersNotInRole(String rid, UsersNotInRoleSearch search, Model model){
     	ListTemplate lt = userDAO.getLt();
-    	String sql = search.buildSQL(lt) + " order by c_username asc";
+    	String sql = search.buildSQL(lt) + " order by username asc";
     	List<?> users = jt.query(sql, new Object[] {rid}, lt);
         model.addAttribute("result", users);
         return "json";
@@ -197,7 +197,7 @@ public class RoleAction extends AbstractController {
     @RequestMapping("/adm/roles/listUsersInRoleAjax")
     public String listUsersInRole(String rid, UsersInRoleSearch search, Model model){
     	ListTemplate lt = userDAO.getLt();
-    	String sql = search.buildSQL(lt) + " order by c_username asc";
+    	String sql = search.buildSQL(lt) + " order by username asc";
     	List<?> users = jt.query(sql, new Object[] {rid}, lt);
         model.addAttribute("result", users);
         return "json";
