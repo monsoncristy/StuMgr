@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="edu.cust.login.*"%>
+<%@ page import="cust.slei.login.MyAuthenticationException" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>

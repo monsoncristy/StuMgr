@@ -66,7 +66,7 @@
     <!-- Used by the SecurityManager to access security data (users, roles, etc).
          Many other realm implementations can be used too (PropertiesRealm,
          LdapRealm, etc. -->
-    <bean id="jdbcRealm" class="edu.cust.login.MyJdbcRealm"/>
+    <bean id="jdbcRealm" class="cust.slei.login.MyJdbcRealm"/>
 
     <!-- =========================================================
          Shiro Spring-specific integration

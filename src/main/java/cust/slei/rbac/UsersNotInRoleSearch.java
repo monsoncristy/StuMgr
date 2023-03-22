@@ -1,0 +1,13 @@
+package cust.slei.rbac;
+
+import cust.slei.util.ListTemplate;
+import cust.slei.util.search.Search;
+
+public class UsersNotInRoleSearch extends Search {
+
+	@Override
+	protected String getTables(ListTemplate lt) {
+		// TODO Auto-generated method stub
+		return "(select a.* from c_user a left outer join (select c_username from c_user_role where c_role_id=?) b on a.c_username=b.c_username where b.c_username is null) c";
+	}
+}
