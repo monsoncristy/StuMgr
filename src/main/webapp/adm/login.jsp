@@ -110,7 +110,7 @@
 				}
 			%>
 			<div class="form-floating">
-				<input name="username" type="text" id="username" class="form-control" placeholder="用户名" required autofocus>
+				<input name="username" type="text" id="username" class="form-control" placeholder=户名" required autofocus>
 				<label for="username" class="sr-only floatingInput">用户名</label>
 			</div>
 
