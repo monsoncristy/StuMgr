@@ -119,7 +119,7 @@
 			</form>
 			<button class="btn btn-primary"
 				onClick="simpleSearch('listPermissionsAjax','searchForm', vum);">
-				<span class="glyphicon glyphicon-search"></span>
+				<span class="glyphicon glyphicon-search">查询权限</span>
 			</button>
 			<button class="btn btn-primary" onClick="add();">添加权限</button>
 		</div>
@@ -170,12 +170,20 @@
 				<tr v-for="data in datas">
 					<td>{{data.permId}}</td>
 					<td>{{data.perm}}</td>
-					<td><button title="编辑权限信息"
-							@click="load(data)">
-							<span class="glyphicon glyphicon-edit"></span>
+					<td>
+						<button type="编辑权限信息" class="btn btn-sm btn-outline-secondary"
+								@click="load(data)">
+							<span class="glyphicon glyphicon-edit">编辑权限信息</span>
 						</button>
-						<button title="删除权限" @click="del(data.id);">
-							<span class="glyphicon glyphicon-remove"></span>
+
+
+<%--						<button title="编辑权限信息"--%>
+<%--							@click="load(data)">--%>
+<%--							<span class="glyphicon glyphicon-edit">编辑权限信息</span>--%>
+<%--						</button>--%>
+
+						<button title="删除权限" class="btn btn-sm btn-outline-secondary" @click="del(data.id);">
+							<span class="glyphicon glyphicon-remove">删除权限</span>
 						</button>
 					</td>
 			</table>

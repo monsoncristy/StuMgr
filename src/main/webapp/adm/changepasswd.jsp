@@ -58,17 +58,22 @@
 body {
 	margin-top: 20px;
 }
+.col-md-4{
+	width: 100%;
+}
 </style>
 </head>
 <body>
-	<div class="container-fluid">
-		<form class="form-horizontal" id="passwd">
+
+
+	<div class="container-fluid col-sm-6">
+		<form class="form-horizontal needs-validation" id="passwd">
 			<fieldset>
-				<legend>修改密码</legend>
-				<div class="form-group">
+				<h2 style="text-align: center">修改密码</h2>
+				<div class="form-group" width="100%">
 					<label class="col-md-4 control-label" for="piNewPass">新密码</label>
-					<div class="col-md-4">
-						<input id="piNewPass" name="piNewPass" type="password" class="form-control input-md">
+					<div class="col-md-4 col-sm-6" width="100%">
+						<input  id="piNewPass" name="piNewPass" type="password" class="form-control input-md"placeholder="" value="" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -79,9 +84,10 @@ body {
 				</div>
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="bCancel"></label>
-					<div class="col-md-8">
-						<button type="reset" class="btn btn-danger">取消</button>
-						<button type="submit" class="btn btn-success">提交</button>
+					<div class="col-md-8 col-md-4">
+					<div class="col-md-8 col-md-4" style="text-align: center">
+						<button type="reset" class="btn btn-danger" >取消</button>
+						<button type="submit" class="btn btn-success" >提交</button>
 					</div>
 				</div>
 			</fieldset>

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../../y/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../y/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../../y/css/common.css">
+	<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="../../y/js/jquery.min.js"></script>
 <script type="text/javascript" src="../../y/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="../../y/js/jquery.validate.min.js"></script>
@@ -142,14 +143,33 @@
 				<input type="text" name="values" class="form-control" placeholder="姓名">
 				</span>
 			</form>
-			<button class="btn btn-primary"
-				onClick="search(1,'listAjax','searchForm', vum);">
-				<span class="glyphicon glyphicon-search"></span>
-			</button>
-			<button class="btn btn-primary" onClick="add();">添加用户</button>
-			<button class="btn btn-primary" onClick="openImportForm()"><span class="glyphicon glyphicon-import"></span>导入用户</button>
-			<button class="btn btn-primary" onClick="location.href='export'"><span class="glyphicon glyphicon-export"></span>导出用户</button>
+<%--			<button class="btn btn-primary"--%>
+<%--				onClick="search(1,'listAjax','searchForm', vum);">搜索用户--%>
+<%--				<span class="glyphicon glyphicon-search"></span>--%>
+<%--			</button>--%>
+<%--			<button class="btn btn-primary" onClick="add();">添加用户</button>--%>
+<%--			<button class="btn btn-primary" onClick="openImportForm()"><span class="glyphicon glyphicon-import"></span>导入用户</button>--%>
+<%--			<button class="btn btn-primary" onClick="location.href='export'"><span class="glyphicon glyphicon-export"></span>导出用户</button>--%>
 		</div>
+
+
+		<div class="container">
+		<header class="d-flex justify-content-center py-3">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<button class="btn btn-primary"
+											 onClick="search(1,'listAjax','searchForm', vum);">搜索用户
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+				</li>
+				<li class="nav-item"><button class="btn btn-primary" onClick="add();">添加用户</button></li>
+				<li class="nav-item"><button class="btn btn-primary" onClick="openImportForm()"><span class="glyphicon glyphicon-import"></span>导入用户</button></li>
+				<li class="nav-item"><button class="btn btn-primary" onClick="location.href='export'"><span class="glyphicon glyphicon-export"></span>导出用户</button></li>
+			</ul>
+		</header>
+	</div>
+
+
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog"
 			aria-labelledby="addModalLabel">
 			<div class="modal-dialog" role="document">
@@ -228,13 +248,20 @@
 				<tr v-for="data in datas">
 					<td>{{data.username}}</td>
 					<td>{{data.name}}</td>
-					<td><button title="编辑用户信息"
-							@click="load(data)">
-							<span class="glyphicon glyphicon-edit"></span>
+					<td>
+<%--						<button title="编辑用户信息"--%>
+<%--							@click="load(data)">--%>
+<%--							<span class="glyphicon glyphicon-edit">编辑用户信息</span>--%>
+<%--						</button>--%>
+						<button type="编辑用户信息" class="btn btn-sm btn-outline-secondary" @click="load(data)">
+							<span class="glyphicon glyphicon-edit">编辑用户信息</span>
 						</button>
-						<button title="删除用户" @click="del(data.username);">
-							<span class="glyphicon glyphicon-remove"></span>
-						</button>
+<%--						<button  title="删除用户" @click="del(data.username);">--%>
+<%--							<span class="glyphicon glyphicon-remove">删除用户</span>--%>
+<%--						</button>--%>
+						<button type="删除用户" class="btn btn-sm btn-outline-secondary" @click="del(data.username);">
+							<span class="glyphicon glyphicon-remove">删除用户</span>
+							</button>
 					</td>
 			</table>
 			<span>总数量：{{pages.rowCount}}</span> <span>总页数：{{pages.lastPage}}</span>

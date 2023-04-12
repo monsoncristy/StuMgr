@@ -153,18 +153,18 @@
 				<tr v-for="data in datas">
 					<td>{{data.roleId}}</td>
 					<td>{{data.role}}</td>
-					<td><button title="编辑角色信息"
+					<td><button class="btn btn-sm btn-outline-secondary" title="编辑角色信息"
 							@click="load(data)">
-							<span class="glyphicon glyphicon-edit"></span>
+							<span class="glyphicon glyphicon-edit">编辑角色信息</span>
 						</button>
-						<button title="删除角色" @click="del(data.id);">
-							<span class="glyphicon glyphicon-remove"></span>
+						<button class="btn btn-sm btn-outline-secondary" title="删除角色" @click="del(data.id);">
+							<span class="glyphicon glyphicon-remove">删除角色</span>
 						</button>
-						<button title="管理权限" @click="location.href='listPermsInRole?roleId=' + data.roleId">
-							<span class="glyphicon glyphicon-th"></span>
+						<button class="btn btn-sm btn-outline-secondary" title="管理权限" @click="location.href='listPermsInRole?roleId=' + data.roleId">
+							<span class="glyphicon glyphicon-th">管理权限</span>
 						</button>
-						<button title="管理用户" @click="location.href='listUsersInRole?roleId=' + data.roleId">
-							<span class="glyphicon glyphicon-user"></span>
+						<button class="btn btn-sm btn-outline-secondary" title="管理用户" @click="location.href='listUsersInRole?roleId=' + data.roleId">
+							<span class="glyphicon glyphicon-user">管理用户</span>
 						</button>
 					</td>
 			</table>

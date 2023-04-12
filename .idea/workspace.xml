@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="98be29ec-a262-4812-b677-b7eea67083f1" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/y/css/headers.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/adm/changepasswd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/adm/changepasswd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/adm/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/adm/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/adm/perms/listPerms.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/adm/perms/listPerms.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/adm/roles/listRoles.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/adm/roles/listRoles.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/adm/users/listUsers.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/adm/users/listUsers.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="2NlPgxeIjBJxVKay0h6Y0DENSHI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/y/css" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="项目" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\86130\Documents\GitHub\StuMgr\src\main\webapp\y\css" />
+      <recent name="C:\Users\86130\Documents\GitHub\StuMgr\src\main\webapp\images" />
+      <recent name="C:\Users\86130\Documents\GitHub\StuMgr\src\main\webapp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\86130\Documents\GitHub\StuMgr\src\main\webapp" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="training" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cust.slei.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="98be29ec-a262-4812-b677-b7eea67083f1" name="变更" comment="" />
+      <created>1680235812536</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680235812536</updated>
+      <workItem from="1680235814499" duration="199000" />
+      <workItem from="1680236040425" duration="3017000" />
+      <workItem from="1680478031412" duration="3335000" />
+      <workItem from="1680747800378" duration="1403000" />
+      <workItem from="1681047195044" duration="3938000" />
+      <workItem from="1681083434522" duration="4870000" />
+      <workItem from="1681274879131" duration="280000" />
+      <workItem from="1681275198120" duration="6000" />
+      <workItem from="1681276157940" duration="3000" />
+      <workItem from="1681276715871" duration="1297000" />
+      <workItem from="1681278076038" duration="22000" />
+      <workItem from="1681278227349" duration="4000" />
+      <workItem from="1681279544851" duration="89000" />
+      <workItem from="1681281936672" duration="626000" />
+      <workItem from="1681282594219" duration="6911000" />
+      <workItem from="1681312301895" duration="623000" />
+      <workItem from="1681344984687" duration="4297000" />
+      <workItem from="1681373424683" duration="6175000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+</project>
