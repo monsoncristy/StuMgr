@@ -77,56 +77,27 @@
 </script>
 </head>
 
-<body style="padding-top: 0px">
-<main>
-<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
-	<div class="container-fluid " style="margin: 5px">
-		<a class="navbar-brand" href="#">素质评测管理系统</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarsExample02">
-			<ul class="navbar-nav me-auto">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" data-src="welcome.jsp" href="#a">主页</a>
-				</li>
-				<shiro:hasRole name="sa">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">人员管理</a>
-					<ul class="dropdown-menu">
-						<shiro:hasPermission name="jsgl">
-						<li><a class="dropdown-item" href="#a" data-toggle="tab"
-							   data-src="users/listUsers.jsp">用户管理</a></li>
-						</shiro:hasPermission>
-						<shiro:hasPermission name="jsgl">
-						<li><a class="dropdown-item" href="#a" data-toggle="tab"
-							   data-src="roles/listRoles.jsp">角色管理</a></li>
-						</shiro:hasPermission>
-						<shiro:hasPermission name="qxgl">
-							<li><a class="dropdown-item" href="#a" data-toggle="tab"
-								   data-src="perms/listPerms.jsp">权限管理</a></li>
-						</shiro:hasPermission>
-						<li><a class="dropdown-item" href="#a">Another action</a></li>
-					</ul>
-				</li>
-				</shiro:hasRole>
-				<li class="nav-item">
-					<a class="nav-link" href="#a" data-src="changepasswd" data-toggle="tab">修改密码</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="logout">退出</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
-				</li>
-			</ul>
-			<form role="search">
-				<input class="form-control" type="search" placeholder="Search" aria-label="Search">
-			</form>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">管理系统</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#a" data-src="changepasswd">修改密码</a></li>
+					<li><a href="logout">退出</a></li>
+				</ul>
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
 	<div class="container-fluid">
 		<div class="tab-pane active" id="a">
