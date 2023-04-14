@@ -104,10 +104,25 @@
 							<li><a class="dropdown-item" href="#a" data-toggle="tab"
 								   data-src="perms/listPerms.jsp">权限管理</a></li>
 						</shiro:hasPermission>
-						<li><a class="dropdown-item" href="#a">Another action</a></li>
+
 					</ul>
 				</li>
 				</shiro:hasRole>
+				<shiro:hasPermission name="xsgl">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">学生管理</a>
+						<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#a" data-toggle="tab"
+									   data-src="student/listStudent.jsp">学生管理</a></li>
+								<li><a class="dropdown-item" href="#a" data-toggle="tab"
+									   data-src="student/listStuResult.jsp">成绩查询</a></li>
+								<li><a class="dropdown-item" href="#a" data-toggle="tab"
+									   data-src="perms/listPerms.jsp">平时表现</a></li>
+								<li><a class="dropdown-item" href="#a" data-toggle="tab"
+								   		data-src="perms/listPerms.jsp">综合评测</a></li>
+						</ul>
+					</li>
+				</shiro:hasPermission>
 				<li class="nav-item">
 					<a class="nav-link" href="#a" data-src="changepasswd" data-toggle="tab">修改密码</a>
 				</li>
