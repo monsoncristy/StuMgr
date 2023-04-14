@@ -121,7 +121,7 @@
         }
 
         function fillForm(obj) {
-            $('#addForm input:text').val(function (index, value) {
+            $('#addForm input').val(function (index, value) {
                 return obj[this.id];
             });
         }
@@ -188,15 +188,15 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="classNumber" name="classNumber" placeholder="届-班号">
-                            <label for="name">届-班号</label>
+                            <label for="classNumber">届-班号</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control rounded-3" id="email" name="email" placeholder="邮箱">
-                            <label for="name">邮箱</label>
+                            <label for="email">邮箱</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="phone" name="phone" placeholder="手机号">
-                            <label for="name">手机号</label>
+                            <label for="phone">手机号</label>
                         </div>
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">确认添加</button>
                     </form>

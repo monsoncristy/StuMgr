@@ -105,6 +105,8 @@
 		<p align="left">
 			<button class="btn btn-primary" onClick="add();">添加角色</button>
 		</p>
+
+
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog"
 			aria-labelledby="addModalLabel">
 			<div class="modal-dialog" role="document">
