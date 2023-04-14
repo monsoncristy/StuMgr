@@ -77,7 +77,7 @@
 <body style="padding-top: 0px">
 <main>
 <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
-	<div class="container-fluid container-sm">
+	<div class="container-fluid" style="margin: 5px">
 		<a class="navbar-brand" href="#">素质评测管理系统</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>

@@ -37,7 +37,7 @@ public class RoleAction extends AbstractController {
 	private UserRoleDAO userRoleDAO;
 	
 	@Autowired
-	private UserDAOOnlyName userDAO;
+	private UserDAO userDAO;
 
     @Autowired
     private JdbcTemplate jt;

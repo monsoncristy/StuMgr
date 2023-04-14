@@ -5,11 +5,11 @@ import cust.slei.util.DAOTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserDAOOnlyName extends DAOTemplate<User> {
-    public UserDAOOnlyName(){
+public class UserDAO extends DAOTemplate<User> {
+    public UserDAO(){
         clazz = User.class;
         pkColumns = new String[]{"username"};
-        comColumns = new String[]{"name"};
+        comColumns = new String[]{"name","class_number","email","job","phone"};
         tableName = "user";
         init();
     }

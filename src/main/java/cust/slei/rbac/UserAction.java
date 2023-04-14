@@ -1,8 +1,8 @@
 package cust.slei.rbac;
 
 import cust.slei.login.PasswordService;
+import cust.slei.rbac.dao.UserDAO;
 import cust.slei.rbac.dao.UserDAOIncPwd;
-import cust.slei.rbac.dao.UserDAOOnlyName;
 import cust.slei.rbac.domain.User;
 import cust.slei.util.AbstractController;
 import cust.slei.util.BusinessException;
@@ -39,7 +39,7 @@ public class UserAction extends AbstractController {
 	private JdbcTemplate jt;
 	
 	@Autowired
-	private UserDAOOnlyName userDAO2;//没有密码
+	private UserDAO userDAO2;//没有密码
 	
 	@Autowired
 	private UserDAOIncPwd userDAO;
@@ -76,8 +76,9 @@ public class UserAction extends AbstractController {
 	@RequiresPermissions({"yhgl"})
 	@RequestMapping("/adm/users/addAjax")
 	public String add(User user, Model model) {
+//		log.debug(user.toString());
 		user.setPassword(passwordService.encryptPassword(user.getUsername()));
-		userDAO.insert(user);
+		userDAO2.insert(user);
 		model.addAttribute("retCode", "OK");
 		model.addAttribute("retMsg", "添加成功");
 		return "json";
@@ -87,9 +88,7 @@ public class UserAction extends AbstractController {
 	@RequiresPermissions({"yhgl"})
 	@RequestMapping("/adm/users/updateAjax")
 	public String update(Model model, User user) {
-		User a = userDAO.loadOne(user.getUsername());
-		a.setName(user.getName());
-		userDAO.update(a);
+		userDAO2.update(user);
 		model.addAttribute("retCode", "OK");
 		model.addAttribute("retMsg", "更新成功");
 		return "json";

@@ -277,7 +277,7 @@ public abstract class DAOTemplate<T> {
         buffer.deleteCharAt(buffer.length() - 1);
         buffer.append(")");
         insertSQL = buffer.toString();
-
+//        log.debug(insertSQL);
     }
     protected void buildUpdateSQL(boolean updatePk){
         //生成updateSQL
