@@ -82,39 +82,39 @@
 
         });
 
-        function add() {
-            fillForm({});
-            $('#username').attr("readOnly", false);
-            $('#addForm').attr("action", "addAjax");
-            $('#title').text("添加学生");
-            $('#addModal').modal("toggle");
-        }
+        // function add() {
+        //     fillForm({});
+        //     $('#username').attr("readOnly", false);
+        //     $('#addForm').attr("action", "addAjax");
+        //     $('#title').text("添加学生");
+        //     $('#addModal').modal("toggle");
+        // }
 
-        function del(id) {
-            if (confirm("确定删除该学生吗？")) {
-                $.ajax({
-                    url: "deleteAjax",
-                    type: "POST",
-                    data: {
-                        id: id
-                    },
-                    success: function (data) {
-                        alert(data.retMsg);
-                        vum.showData(page);
-                    }
-                });
-            }
-        }
+        // function del(id) {
+        //     if (confirm("确定删除该学生吗？")) {
+        //         $.ajax({
+        //             url: "deleteAjax",
+        //             type: "POST",
+        //             data: {
+        //                 id: id
+        //             },
+        //             success: function (data) {
+        //                 alert(data.retMsg);
+        //                 vum.showData(page);
+        //             }
+        //         });
+        //     }
+        // }
 
-        function openImportForm() {
-            $('#importForm').attr("action", "importAjax");
-            $('#importModalLabel').text("导入学生");
-            $('#importModal').modal("toggle");
-        }
+        // function openImportForm() {
+        //     $('#importForm').attr("action", "importAjax");
+        //     $('#importModalLabel').text("导入学生");
+        //     $('#importModal').modal("toggle");
+        // }
 
         function load(data) {
             $('#username').attr("readOnly", true);
-            $('#addForm').attr("action", "updateAjax");
+            $('#addForm').attr("action", "updateStuResAjax");
             $('#title').text("查看学生成绩");
             $('#addModal').modal("toggle");
             fillForm(data);

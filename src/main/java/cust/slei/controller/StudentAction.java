@@ -27,7 +27,7 @@ public class StudentAction extends AbstractController {
     private StudentDAO studentDAO;
 
     @RequiresPermissions({"xsgl"})
-    @RequestMapping("/adm/student/listAjax")
+    @RequestMapping("/adm/student/stuResAjax")
     public String list(int rows, int page, Search search, Model model) {
         String sql = search.buildSQL(studentDAO);
         sql += " order by id desc";
@@ -42,29 +42,13 @@ public class StudentAction extends AbstractController {
         return "json";
     }
 
-    @Transactional
-    @RequiresPermissions({"xsgl"})
-    @RequestMapping("/adm/student/deleteAjax")
-    public String delete(String id, Model model) {
-        studentDAO.delete(id);
-        model.addAttribute("retMsg", "删除成功");
-        return "json";
-    }
+
+
+
 
     @Transactional
     @RequiresPermissions({"xsgl"})
-    @RequestMapping("/adm/student/addAjax")
-    public String add(Student student, Model model) {
-//		log.debug(user.toString());
-        studentDAO.insert(student);
-        model.addAttribute("retCode", "OK");
-        model.addAttribute("retMsg", "添加成功");
-        return "json";
-    }
-
-    @Transactional
-    @RequiresPermissions({"xsgl"})
-    @RequestMapping("/adm/student/updateAjax")
+    @RequestMapping("/adm/student/updateStuResAjax")
     public String update(Model model, Student student) {
         studentDAO.update(student);
         model.addAttribute("retCode", "OK");
