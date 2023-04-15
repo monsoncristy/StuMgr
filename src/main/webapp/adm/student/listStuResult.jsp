@@ -253,9 +253,9 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="all_result" name="all_result"
+                            <input type="text" class="form-control rounded-3" id="allResult" name="allResult"
                                    placeholder="总分">
-                            <label for="all_result">总分</label>
+                            <label for="allResult">总分</label>
                         </div>
 
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">确认添加</button>
@@ -314,6 +314,7 @@
                     <th>地理</th>
                     <th>政治</th>
                     <th>总分</th>
+                    <th>操作</th>
                 </tr>
                 <tr v-for="data in datas">
                     <td>{{data.id}}</td>
@@ -329,7 +330,7 @@
                     <td>{{data.history}}</td>
                     <td>{{data.geography}}</td>
                     <td>{{data.politics}}</td>
-                    <td>{{data.all_result}}</td>
+                    <td>{{data.allResult}}</td>
                     <td>
                         <button type="编辑用户信息" class="btn btn-sm btn-outline-secondary" @click="load(data)">
                             <span class="glyphicon glyphicon-edit">编辑用户信息</span>

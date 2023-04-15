@@ -27,7 +27,7 @@ public class StudentAction extends AbstractController {
     private StudentDAO studentDAO;
 
     @RequiresPermissions({"xsgl"})
-    @RequestMapping("/adm/student/stuAjax")
+    @RequestMapping("/adm/student/listAjax")
     public String list(int rows, int page, Search search, Model model) {
         String sql = search.buildSQL(studentDAO);
         sql += " order by id desc";

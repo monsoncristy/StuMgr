@@ -245,6 +245,7 @@
                     <th>姓名</th>
                     <th>卫生</th>
                     <th>奖项</th>
+                    <th>操作</th>
                 </tr>
                 <tr v-for="data in datas">
                     <td>{{data.grade}}</td>

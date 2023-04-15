@@ -151,21 +151,7 @@
   </div>
 
 
-  <%--		<div class="container">--%>
-  <%--		<header class="d-flex justify-content-center py-3">--%>
-  <%--			<ul class="nav nav-pills">--%>
-  <%--				<li class="nav-item">--%>
-  <%--					<button class="btn btn-primary"--%>
-  <%--											 onClick="search(1,'listAjax','searchForm', vum);">搜索用户--%>
-  <%--					<span class="glyphicon glyphicon-search"></span>--%>
-  <%--				</button>--%>
-  <%--				</li>--%>
-  <%--				<li class="nav-item"><button class="btn btn-primary" onClick="add();">添加用户</button></li>--%>
-  <%--				<li class="nav-item"><button class="btn btn-primary" onClick="openImportForm()"><span class="glyphicon glyphicon-import"></span>导入用户</button></li>--%>
-  <%--				<li class="nav-item"><button class="btn btn-primary" onClick="location.href='export'"><span class="glyphicon glyphicon-export"></span>导出用户</button></li>--%>
-  <%--			</ul>--%>
-  <%--		</header>--%>
-  <%--	</div>--%>
+
 
   <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
     <div class="modal-dialog" role="document">
