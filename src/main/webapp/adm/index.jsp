@@ -117,9 +117,9 @@
 								<li><a class="dropdown-item" href="#a" data-toggle="tab"
 									   data-src="student/listStuResult.jsp">成绩查询</a></li>
 								<li><a class="dropdown-item" href="#a" data-toggle="tab"
-									   data-src="perms/listPerms.jsp">平时表现</a></li>
+									   data-src="student/listStudentDaliy.jsp">平时表现</a></li>
 								<li><a class="dropdown-item" href="#a" data-toggle="tab"
-								   		data-src="perms/listPerms.jsp">综合评测</a></li>
+								   		data-src="student/listStudentTotal.jsp">综合评测</a></li>
 						</ul>
 					</li>
 				</shiro:hasPermission>

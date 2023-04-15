@@ -26,7 +26,7 @@ public class StudentResultAction extends AbstractController {
     private StudentResultDAO studentResultDAO;
 
     @RequiresPermissions({"xsgl"})
-    @RequestMapping("/adm/student/listAjax")
+    @RequestMapping("/adm/student/listResAjax")
     public String list(int rows, int page, Search search, Model model) {
         String sql = search.buildSQL(studentResultDAO);
         sql += " order by id desc";
@@ -41,29 +41,29 @@ public class StudentResultAction extends AbstractController {
         return "json";
     }
 
-    @Transactional
-    @RequiresPermissions({"xsgl"})
-    @RequestMapping("/adm/student/deleteAjax")
-    public String delete(String id, Model model) {
-        studentResultDAO.delete(id);
-        model.addAttribute("retMsg", "删除成功");
-        return "json";
-    }
+//    @Transactional
+//    @RequiresPermissions({"xsgl"})
+//    @RequestMapping("/adm/student/deleteAjax")
+//    public String delete(String id, Model model) {
+//        studentResultDAO.delete(id);
+//        model.addAttribute("retMsg", "删除成功");
+//        return "json";
+//    }
+
+//    @Transactional
+//    @RequiresPermissions({"xsgl"})
+//    @RequestMapping("/adm/student/addAjax")
+//    public String add(StudentResult studentresult, Model model) {
+////		log.debug(user.toString());
+//        studentResultDAO.insert(studentresult);
+//        model.addAttribute("retCode", "OK");
+//        model.addAttribute("retMsg", "添加成功");
+//        return "json";
+//    }
 
     @Transactional
     @RequiresPermissions({"xsgl"})
-    @RequestMapping("/adm/student/addAjax")
-    public String add(StudentResult studentresult, Model model) {
-//		log.debug(user.toString());
-        studentResultDAO.insert(studentresult);
-        model.addAttribute("retCode", "OK");
-        model.addAttribute("retMsg", "添加成功");
-        return "json";
-    }
-
-    @Transactional
-    @RequiresPermissions({"xsgl"})
-    @RequestMapping("/adm/student/updateAjax")
+    @RequestMapping("/adm/student/updateResAjax")
     public String update(Model model, StudentResult studentresult) {
         studentResultDAO.update(studentresult);
         model.addAttribute("retCode", "OK");
