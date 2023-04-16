@@ -117,11 +117,11 @@
 				<input type="text" name="values" class="form-control" placeholder="权限名称">
 				</span>
 			</form>
-			<button class="btn btn-primary"
+			<button class="btn btn-secondary"
 				onClick="simpleSearch('listPermissionsAjax','searchForm', vum);">
 				<span class="glyphicon glyphicon-search">查询权限</span>
 			</button>
-			<button class="btn btn-primary" onClick="add();">添加权限</button>
+			<button class="btn btn-secondary" onClick="add();">添加权限</button>
 		</div>
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog"
 			aria-labelledby="addModalLabel">

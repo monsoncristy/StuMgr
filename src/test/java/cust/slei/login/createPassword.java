@@ -32,7 +32,7 @@ public class createPassword {
     }
 
     public static void main(String[] args) {
-        String password = "123456";
+        String password = "1234567";
         String code = "6d63cb71688280f0f19f735cd7a043f499755a9398634f3d85e645e2";
         System.out.println(encryptPassword(password));
         System.out.println(validatePassword(password, code));

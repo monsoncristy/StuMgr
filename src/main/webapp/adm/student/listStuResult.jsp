@@ -133,16 +133,21 @@
         <form id="searchForm" class="card p-2">
             <input type="hidden" name="columns" value="grade">
             <input type="hidden" name="columns" value="calss">
+            <input type="hidden" name="columns" value="name">
             <input type="hidden" name="operators" value="like">
             <input type="hidden" name="operators" value="like">
+            <input type="hidden" name="operators" value="like">
+            <input type="hidden" name="orders" value="none">
             <input type="hidden" name="orders" value="none">
             <input type="hidden" name="orders" value="none">
             <input type="hidden" name="logicalopts" value="">
             <input type="hidden" name="logicalopts" value="and">
+            <input type="hidden" name="logicalopts" value="and">
             <div class="input-group">
                 <input type="text" name="values" class="form-control" placeholder="届级">
                 <input type="text" name="values" class="form-control" placeholder="班级">
-                <button class="btn btn-secondary" type="button" onClick="search(1,'listAjax','searchForm', vum);"><i
+                <input type="text" name="values" class="form-control" placeholder="姓名">
+                <button class="btn btn-secondary" type="button" onClick="search(1,'listResAjax','searchForm', vum);"><i
                         class="bi-search"></i> 搜索学生
                 </button>
                 <%--                <button class="btn btn-secondary" onClick="add();" type="button"><i class="bi-plus"></i> 添加学生</button>--%>
@@ -181,8 +186,8 @@
                 <div class="modal-body p-5 pt-0">
                     <form id="addForm" method="post" action="" class="form-horizontal">
                         <div>
-                            <input type="text" class="form-control rounded-3" id="id" name="id" placeholder="年级">
-                            <label for="id">学号</label>
+                            <input type="hidden" class="form-control rounded-3" id="id" name="id" placeholder="年级">
+                            <label for="id"></label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="name" name="name"
@@ -253,9 +258,9 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="allResult" name="allResult"
+                            <input type="hidden" class="form-control rounded-3" id="allResult" name="allResult"
                                    placeholder="总分">
-                            <label for="allResult">总分</label>
+                            <label for="allResult"></label>
                         </div>
 
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">确认添加</button>

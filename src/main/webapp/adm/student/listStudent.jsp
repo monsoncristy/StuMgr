@@ -133,15 +133,20 @@
     <form id="searchForm" class="card p-2">
       <input type="hidden" name="columns" value="grade">
       <input type="hidden" name="columns" value="calss">
+      <input type="hidden" name="columns" value="name">
       <input type="hidden" name="operators" value="like">
       <input type="hidden" name="operators" value="like">
+      <input type="hidden" name="operators" value="like">
+      <input type="hidden" name="orders" value="none">
       <input type="hidden" name="orders" value="none">
       <input type="hidden" name="orders" value="none">
       <input type="hidden" name="logicalopts" value="">
       <input type="hidden" name="logicalopts" value="and">
+      <input type="hidden" name="logicalopts" value="and">
       <div class="input-group">
         <input type="text" name="values" class="form-control" placeholder="届级">
         <input type="text" name="values" class="form-control" placeholder="班级">
+        <input type="text" name="values" class="form-control" placeholder="姓名">
         <button class="btn btn-secondary" type="button" onClick="search(1,'listAjax','searchForm', vum);"><i class="bi-search"></i> 搜索学生</button>
         <button class="btn btn-secondary" onClick="add();" type="button"><i class="bi-plus"></i> 添加学生</button>
         <button class="btn btn-secondary" onClick="openImportForm()" type="button"><i class="bi-folder-plus"></i> 导入学生</button>
@@ -193,10 +198,10 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"
-                  aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+<%--          <button type="button" class="close" data-dismiss="modal"--%>
+<%--                  aria-label="Close">--%>
+<%--            <span aria-hidden="true">&times;</span>--%>
+<%--          </button>--%>
           <h4 class="modal-title" id="importModalLabel">导入用户</h4>
         </div>
         <form id="importForm" method="post" action="" enctype="multipart/form-data" class="form-horizontal">
@@ -209,9 +214,9 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default"
-                    data-dismiss="modal">关闭
-            </button>
+<%--            <button type="button" class="btn btn-default"--%>
+<%--                    data-dismiss="modal">关闭--%>
+<%--            </button>--%>
             <input type="submit" class="btn btn-primary" value="提交">
           </div>
         </form>

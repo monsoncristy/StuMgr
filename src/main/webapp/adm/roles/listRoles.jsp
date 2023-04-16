@@ -103,7 +103,7 @@
 <body>
 	<div class="container-fluid" align="center">
 		<p align="left">
-			<button class="btn btn-primary" onClick="add();">添加角色</button>
+			<button class="btn btn-secondary" onClick="add();">添加角色</button>
 		</p>
 
 
