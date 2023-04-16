@@ -6,9 +6,6 @@ import lombok.Data;
 public class StudentResult {
 
     private Integer id;
-    private String name;
-    private int grade;
-    private int calss;
     private double chinese;
     private double math;
     private double english;
@@ -19,5 +16,10 @@ public class StudentResult {
     private double geography;
     private double politics;
     private double allResult;
+
+    public void sumAll(){
+        this.allResult = this.biology + this.chemistry + this.chinese + this.math
+                + this.english + this.physics + this.history + this.geography + this.politics;
+    }
 
 }

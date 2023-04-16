@@ -11,6 +11,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -25,6 +26,9 @@ public class StudentAction extends AbstractController {
 
     @Autowired
     private StudentDAO studentDAO;
+
+    @Autowired
+    private JdbcTemplate jt;
 
     @RequiresPermissions({"xsgl"})
     @RequestMapping("/adm/student/listAjax")
@@ -50,12 +54,20 @@ public class StudentAction extends AbstractController {
         model.addAttribute("retMsg", "删除成功");
         return "json";
     }
-
+//    sql,)
     @Transactional
     @RequiresPermissions({"xsgl"})
     @RequestMapping("/adm/student/addAjax")
     public String add(Student student, Model model) {
 //		log.debug(user.toString());
+        StringBuffer sb = new StringBuffer();
+        sb.append(student.getGrade());
+        sb.append(student.getCalss());
+        List<Student> lt= studentDAO.loadMore("where grade = ? and calss = ?",new Object[]{student.getGrade(),student.getCalss()});
+        sb.append(lt.size()+1);
+        int id = Integer.parseInt(sb.toString());
+        student.setId(id);
+        log.debug(student.toString());
         studentDAO.insert(student);
         model.addAttribute("retCode", "OK");
         model.addAttribute("retMsg", "添加成功");

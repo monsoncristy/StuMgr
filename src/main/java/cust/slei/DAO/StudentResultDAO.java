@@ -11,8 +11,8 @@ public class StudentResultDAO extends DAOTemplate<StudentResult> {
     public StudentResultDAO(){
         clazz = StudentResult.class;
         pkColumns = new String[]{"id"};
-        comColumns = new String[]{"name","calss","grade"
-                ,"chinese","math","english","physics","chemistry","biology"
+        comColumns = new String[]{
+                "chinese","math","english","physics","chemistry","biology"
                 ,"history","geography","politics","all_result"};
         tableName = "stu_result";
         init();

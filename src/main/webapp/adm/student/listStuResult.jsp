@@ -179,29 +179,15 @@
             <div class="modal-content rounded-4 shadow">
                 <div class="modal-header p-5 pb-4 border-bottom-0">
                     <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
-                    <h1 class="fw-bold mb-0 fs-2" id="title">添加学生</h1>
+                    <h1 class="fw-bold mb-0 fs-2" id="title">修改成绩</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body p-5 pt-0">
                     <form id="addForm" method="post" action="" class="form-horizontal">
                         <div>
-                            <input type="hidden" class="form-control rounded-3" id="id" name="id" placeholder="年级">
+                            <input hidden="hidden" type="text" class="form-control rounded-3" id="id" name="id" placeholder="年级">
                             <label for="id"></label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="name" name="name"
-                                   placeholder="姓名">
-                            <label for="name">姓名</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="grade" name="grade"
-                                   placeholder="年级">
-                            <label for="grade">年级</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="calss" name="calss" placeholder="班级">
-                            <label for="calss">班级</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="chinese" name="chinese"
@@ -257,12 +243,6 @@
                             <label for="politics">政治</label>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input type="hidden" class="form-control rounded-3" id="allResult" name="allResult"
-                                   placeholder="总分">
-                            <label for="allResult"></label>
-                        </div>
-
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">确认添加</button>
                     </form>
                 </div>
@@ -279,7 +259,7 @@
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="importModalLabel">导入用户</h4>
+                    <h4 class="modal-title" id="importModalLabel">导入成绩</h4>
                 </div>
                 <form id="importForm" method="post" action="" enctype="multipart/form-data" class="form-horizontal">
                     <div class="modal-body">
@@ -335,7 +315,7 @@
                     <td>{{data.history}}</td>
                     <td>{{data.geography}}</td>
                     <td>{{data.politics}}</td>
-                    <td>{{data.allResult}}</td>
+                    <td>{{data.all_result}}</td>
                     <td>
                         <button type="编辑用户信息" class="btn btn-sm btn-outline-secondary" @click="load(data)">
                             <span class="glyphicon glyphicon-edit">编辑用户信息</span>

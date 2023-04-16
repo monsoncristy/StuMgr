@@ -125,7 +125,9 @@
 				</label>
 			</div>
 
+
 			<button class="w-100 btn btn-lg btn-primary" type="submit">登录</button>
+			<button class="w-100 btn btn-sm btn-secondary" type="button" url="../Result.jsp">查询成绩</button>
 			<p class="mt-5 mb-3 text-muted">&copy; 2017–2022 Mr.Yang</p>
 		</form>
 	</main>
