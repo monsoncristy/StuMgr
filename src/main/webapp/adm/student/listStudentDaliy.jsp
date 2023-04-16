@@ -84,13 +84,13 @@
 
         });
 
-        // function add() {
-        //     fillForm({});
-        //     $('#username').attr("readOnly", false);
-        //     $('#addForm').attr("action", "addAjax");
-        //     $('#title').text("添加学生");
-        //     $('#addModal').modal("toggle");
-        // }
+        function add() {
+            fillForm({});
+            $('#username').attr("readOnly", false);
+            $('#addForm').attr("action", "addDaliyAjax");
+            $('#title').text("添加学生");
+            $('#addModal').modal("toggle");
+        }
         //
         // function del(id) {
         //     if (confirm("确定删除该学生吗？")) {
@@ -135,16 +135,25 @@
         <form id="searchForm" class="card p-2">
             <input type="hidden" name="columns" value="grade">
             <input type="hidden" name="columns" value="calss">
+            <input type="hidden" name="columns" value="name">
             <input type="hidden" name="operators" value="like">
             <input type="hidden" name="operators" value="like">
+            <input type="hidden" name="operators" value="like">
+            <input type="hidden" name="orders" value="none">
             <input type="hidden" name="orders" value="none">
             <input type="hidden" name="orders" value="none">
             <input type="hidden" name="logicalopts" value="">
             <input type="hidden" name="logicalopts" value="and">
+            <input type="hidden" name="logicalopts" value="and">
             <div class="input-group">
                 <input type="text" name="values" class="form-control" placeholder="届级">
                 <input type="text" name="values" class="form-control" placeholder="班级">
-                <button class="btn btn-secondary" type="button" onClick="search(1,'listAjax','searchForm', vum);"><i class="bi-search"></i> 搜索学生</button>
+                <input type="text" name="values" class="form-control" placeholder="名字">
+                <button class="btn btn-secondary" type="button" onClick="search(1,'listDaliyAjax','searchForm', vum);"><i class="bi-search"></i> 搜索学生</button>
+                <button class="btn btn-secondary" type="button" onClick="add();">
+                    <i class="bi-plus"></i>
+                        添加平时表现
+                </button>
 <%--                <button class="btn btn-secondary" onClick="add();" type="button"><i class="bi-plus"></i> 添加学生</button>--%>
 <%--                <button class="btn btn-secondary" onClick="openImportForm()" type="button"><i class="bi-folder-plus"></i> 导入学生</button>--%>
 <%--                <button class="btn btn-secondary" onClick="location.href='export'" type="button"><i class="bi-folder-minus"></i> 导出学生</button>--%>
@@ -153,21 +162,21 @@
     </div>
 
 
-    <%--		<div class="container">--%>
-    <%--		<header class="d-flex justify-content-center py-3">--%>
-    <%--			<ul class="nav nav-pills">--%>
-    <%--				<li class="nav-item">--%>
-    <%--					<button class="btn btn-primary"--%>
-    <%--											 onClick="search(1,'listAjax','searchForm', vum);">搜索用户--%>
-    <%--					<span class="glyphicon glyphicon-search"></span>--%>
-    <%--				</button>--%>
-    <%--				</li>--%>
-    <%--				<li class="nav-item"><button class="btn btn-primary" onClick="add();">添加用户</button></li>--%>
-    <%--				<li class="nav-item"><button class="btn btn-primary" onClick="openImportForm()"><span class="glyphicon glyphicon-import"></span>导入用户</button></li>--%>
-    <%--				<li class="nav-item"><button class="btn btn-primary" onClick="location.href='export'"><span class="glyphicon glyphicon-export"></span>导出用户</button></li>--%>
-    <%--			</ul>--%>
-    <%--		</header>--%>
-    <%--	</div>--%>
+<%--    		<div class="container">--%>
+<%--    		<header class="d-flex justify-content-center py-3">--%>
+<%--    			<ul class="nav nav-pills">--%>
+<%--    				<li class="nav-item">--%>
+<%--    					<button class="btn btn-primary"--%>
+<%--    											 onClick="search(1,'listAjax','searchForm', vum);">搜索用户--%>
+<%--    					<span class="glyphicon glyphicon-search"></span>--%>
+<%--    				</button>--%>
+<%--    				</li>--%>
+<%--    				<li class="nav-item"><button class="btn btn-primary" onClick="add();">添加用户</button></li>--%>
+<%--&lt;%&ndash;    				<li class="nav-item"><button class="btn btn-primary" onClick="openImportForm()"><span class="glyphicon glyphicon-import"></span>导入用户</button></li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;    				<li class="nav-item"><button class="btn btn-primary" onClick="location.href='export'"><span class="glyphicon glyphicon-export"></span>导出用户</button></li>&ndash;%&gt;--%>
+<%--    			</ul>--%>
+<%--    		</header>--%>
+<%--    	</div>--%>
 
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
         <div class="modal-dialog" role="document">
@@ -176,19 +185,19 @@
 
                 <div class="modal-body p-5 pt-0">
                     <form id="addForm" method="post" action="" class="form-horizontal">
-                        <input type="hidden" class="form-control rounded-3" id="id" name="id" placeholder="年级">
+<%--                        <input type="text" class="form-control rounded-3" id="id" name="id" placeholder="学号">--%>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="grade" name="grade" placeholder="年级">
-                            <label for="grade">年级</label>
+                            <input type="text" class="form-control rounded-3" id="id" name="id" placeholder="学号">
+                            <label for="id">学号</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="calss" name="calss" placeholder="班级">
-                            <label for="calss">班级</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="name" name="name" placeholder="姓名">
-                            <label for="name">姓名</label>
-                        </div>
+<%--                        <div class="form-floating mb-3">--%>
+<%--                            <input type="text" class="form-control rounded-3" id="calss" name="calss" placeholder="班级">--%>
+<%--                            <label for="calss">班级</label>--%>
+<%--                        </div>--%>
+<%--                        <div class="form-floating mb-3">--%>
+<%--                            <input type="text" class="form-control rounded-3" id="name" name="name" placeholder="姓名">--%>
+<%--                            <label for="name">姓名</label>--%>
+<%--                        </div>--%>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="hygiene" name="hygiene" placeholder="卫生">
                             <label for="hygiene">卫生</label>
@@ -196,6 +205,10 @@
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="awards" name="awards" placeholder="奖项">
                             <label for="awards">奖项</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-3" id="discipline" name="discipline" placeholder="纪律">
+                            <label for="discipline">纪律</label>
                         </div>
 
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">确认添加</button>
@@ -240,26 +253,30 @@
         <div class="bd-example">
             <table class="table table-striped">
                 <tr>
+                    <th>学号</th>
                     <th>年级</th>
                     <th>班级</th>
                     <th>姓名</th>
                     <th>卫生</th>
                     <th>奖项</th>
+                    <th>纪律</th>
                     <th>操作</th>
                 </tr>
                 <tr v-for="data in datas">
+                    <td>{{data.id}}</td>
                     <td>{{data.grade}}</td>
                     <td>{{data.calss}}</td>
                     <td>{{data.name}}</td>
                     <td>{{data.hygiene}}</td>
                     <td>{{data.awards}}</td>
+                    <td>{{data.discipline}}</td>
                     <td>
                         <button type="编辑用户信息" class="btn btn-sm btn-outline-secondary" @click="load(data)">
-                            <span class="glyphicon glyphicon-edit">编辑用户信息</span>
+                            <span class="glyphicon glyphicon-edit">修改</span>
                         </button>
-                        <button type="删除用户" class="btn btn-sm btn-outline-secondary" @click="del(data.id);">
-                            <span class="glyphicon glyphicon-remove">删除用户</span>
-                        </button>
+<%--                        <button type="删除用户" class="btn btn-sm btn-outline-secondary" @click="del(data.id);">--%>
+<%--                            <span class="glyphicon glyphicon-remove">删除用户</span>--%>
+<%--                        </button>--%>
                     </td>
             </table>
             <span>总数量：{{pages.rowCount}}</span> <span>总页数：{{pages.lastPage}}</span>

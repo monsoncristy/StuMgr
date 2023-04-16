@@ -20,8 +20,13 @@
 		<version>2.1.13.RELEASE</version>
 	</parent>
 
-	<!-- Add typical dependencies for a web application -->
 	<dependencies>
+		<!-- 阿里fastjson包JSON转换-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.47</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -130,8 +135,13 @@
 			<version>1.18.8</version>
 			<scope>provided</scope>
 		</dependency>
+        <dependency>
+            <groupId>com.vaadin.external.google</groupId>
+            <artifactId>android-json</artifactId>
+            <version>0.0.20131108.vaadin1</version>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<!-- Package as an executable jar -->
 	<build>

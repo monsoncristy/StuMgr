@@ -7,12 +7,6 @@ public class StudentTotal {
 
     private Integer id;
 
-    private int grade;
-
-    private int calss;
-
-    private String name;
-
     private double de;
 
     private double zhi;
@@ -24,4 +18,9 @@ public class StudentTotal {
     private double lao;
 
     private double total;
+
+    public void sumAll(){
+        this.total = (this.de + this.zhi + this.ti + this.mei + this.lao)/5;
+
+    }
 }

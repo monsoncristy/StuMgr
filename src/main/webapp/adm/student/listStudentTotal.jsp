@@ -24,6 +24,8 @@
     <script type="text/javascript" src="../../y/js/common.js"></script>
     <script type="text/javascript" src="../../y/js/bootstrap.bundle.min.js"></script>
 
+    <script src="../../y/js/echarts.min.js"></script>
+    <!-- 在head标签中添加对Echarts的引用 -->
     <script type="text/javascript">
         var vum;
         var page = 1;
@@ -33,10 +35,12 @@
                 el: "#app",
                 data: {
                     datas: [],
-                    pages: []
+                    pages: [],
+                    dataList: []
                 },
                 methods: {
                     showData: function (p) {
+                        let that = this
                         page = p;
                         search(1, 'listTotalAjax', 'searchForm', vum);
                     }
@@ -82,15 +86,44 @@
                 }
             });
 
+
+            var chartDom = document.getElementById('main');
+            var myChart = echarts.init(chartDom);
+            var option;
+            console.log(vum.dataList);
+            option = {
+                title: {
+                    text: '第一个雷达图'
+                },
+                legend: {
+                    data: ['甲科室','乙科室']
+                },
+                radar: {
+                    // shape: 'circle',
+                    indicator: [
+                        { name: '项目', max: 6500 },
+                        { name: '建设单位', max: 16000 },
+                        { name: '监理单位', max: 30000 },
+                        { name: '勘察单位', max: 38000 },
+                        { name: '房产经纪单位', max: 52000 },
+                        { name: '物业维护单位', max: 25000 }
+                    ]
+                },
+
+                series: vum.dataList
+            };
+
+            option && myChart.setOption(option);
+
         });
 
-        // function add() {
-        //     fillForm({});
-        //     $('#username').attr("readOnly", false);
-        //     $('#addForm').attr("action", "addAjax");
-        //     $('#title').text("添加学生");
-        //     $('#addModal').modal("toggle");
-        // }
+        function add() {
+            fillForm({});
+            $('#username').attr("readOnly", false);
+            $('#addForm').attr("action", "addTotalAjax");
+            $('#title').text("添加学生");
+            $('#addModal').modal("toggle");
+        }
         //
         // function del(id) {
         //     if (confirm("确定删除该学生吗？")) {
@@ -127,7 +160,13 @@
                 return obj[this.id];
             });
         }
+
+
+
+
     </script>
+
+
 </head>
 <body>
 <div class="container-fluid" align="center">
@@ -135,39 +174,28 @@
         <form id="searchForm" class="card p-2">
             <input type="hidden" name="columns" value="grade">
             <input type="hidden" name="columns" value="calss">
+            <input type="hidden" name="columns" value="id">
             <input type="hidden" name="operators" value="like">
             <input type="hidden" name="operators" value="like">
+            <input type="hidden" name="operators" value="like">
+            <input type="hidden" name="orders" value="none">
             <input type="hidden" name="orders" value="none">
             <input type="hidden" name="orders" value="none">
             <input type="hidden" name="logicalopts" value="">
             <input type="hidden" name="logicalopts" value="and">
+            <input type="hidden" name="logicalopts" value="and">
             <div class="input-group">
                 <input type="text" name="values" class="form-control" placeholder="届级">
                 <input type="text" name="values" class="form-control" placeholder="班级">
+                <input type="text" name="values" class="form-control" placeholder="学号">
                 <button class="btn btn-secondary" type="button" onClick="search(1,'listAjax','searchForm', vum);"><i class="bi-search"></i> 搜索学生</button>
-                <%--                <button class="btn btn-secondary" onClick="add();" type="button"><i class="bi-plus"></i> 添加学生</button>--%>
-                <%--                <button class="btn btn-secondary" onClick="openImportForm()" type="button"><i class="bi-folder-plus"></i> 导入学生</button>--%>
-                <%--                <button class="btn btn-secondary" onClick="location.href='export'" type="button"><i class="bi-folder-minus"></i> 导出学生</button>--%>
+
             </div>
         </form>
     </div>
 
 
-    <%--		<div class="container">--%>
-    <%--		<header class="d-flex justify-content-center py-3">--%>
-    <%--			<ul class="nav nav-pills">--%>
-    <%--				<li class="nav-item">--%>
-    <%--					<button class="btn btn-primary"--%>
-    <%--											 onClick="search(1,'listAjax','searchForm', vum);">搜索用户--%>
-    <%--					<span class="glyphicon glyphicon-search"></span>--%>
-    <%--				</button>--%>
-    <%--				</li>--%>
-    <%--				<li class="nav-item"><button class="btn btn-primary" onClick="add();">添加用户</button></li>--%>
-    <%--				<li class="nav-item"><button class="btn btn-primary" onClick="openImportForm()"><span class="glyphicon glyphicon-import"></span>导入用户</button></li>--%>
-    <%--				<li class="nav-item"><button class="btn btn-primary" onClick="location.href='export'"><span class="glyphicon glyphicon-export"></span>导出用户</button></li>--%>
-    <%--			</ul>--%>
-    <%--		</header>--%>
-    <%--	</div>--%>
+
 
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
         <div class="modal-dialog" role="document">
@@ -176,19 +204,17 @@
 
                 <div class="modal-body p-5 pt-0">
                     <form id="addForm" method="post" action="" class="form-horizontal">
-                        <input type="hidden" class="form-control rounded-3" id="id" name="id" placeholder="年级">
+
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="grade" name="grade" placeholder="年级">
-                            <label for="grade">年级</label>
+                            <input type="hidden">
+                            <label ></label>
                         </div>
+
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="calss" name="calss" placeholder="班级">
-                            <label for="calss">班级</label>
+                            <input type="text" class="form-control rounded-3" id="id" name="id" placeholder="学号">
+                            <label for="id">学号</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="name" name="name" placeholder="姓名">
-                            <label for="name">姓名</label>
-                        </div>
+
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="de" name="de" placeholder="德">
                             <label for="de">德</label>
@@ -209,10 +235,8 @@
                             <input type="text" class="form-control rounded-3" id="lao" name="lao" placeholder="劳">
                             <label for="lao">劳</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="total" name="total" placeholder="综合评分">
-                            <label for="total">综合评分</label>
-                        </div>
+
+
 
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">确认添加</button>
                     </form>
@@ -220,38 +244,6 @@
             </div>
         </div>
     </div>
-
-    <%--    <div class="modal fade" id="importModal" tabindex="-1" role="dialog"--%>
-    <%--         aria-labelledby="importModalLabel">--%>
-    <%--        <div class="modal-dialog" role="document">--%>
-    <%--            <div class="modal-content">--%>
-    <%--                <div class="modal-header">--%>
-    <%--                    <button type="button" class="close" data-dismiss="modal"--%>
-    <%--                            aria-label="Close">--%>
-    <%--                        <span aria-hidden="true">&times;</span>--%>
-    <%--                    </button>--%>
-    <%--                    <h4 class="modal-title" id="importModalLabel">导入用户</h4>--%>
-    <%--                </div>--%>
-    <%--                <form id="importForm" method="post" action="" enctype="multipart/form-data" class="form-horizontal">--%>
-    <%--                    <div class="modal-body">--%>
-    <%--                        <div class="form-group">--%>
-    <%--                            <label for="file" class="col-sm-3 control-label">Excel文件</label>--%>
-    <%--                            <div class="col-sm-9">--%>
-    <%--                                <input type="file" name="file" id="file" class="form-control">--%>
-    <%--                            </div>--%>
-    <%--                        </div>--%>
-    <%--                    </div>--%>
-    <%--                    <div class="modal-footer">--%>
-    <%--                        <button type="button" class="btn btn-default"--%>
-    <%--                                data-dismiss="modal">关闭--%>
-    <%--                        </button>--%>
-    <%--                        <input type="submit" class="btn btn-primary" value="提交">--%>
-    <%--                    </div>--%>
-    <%--                </form>--%>
-    <%--            </div>--%>
-    <%--        </div>--%>
-    <%--    </div>--%>
-
     <div id="app" class="bd-example-snippet bd-code-snippet">
         <div class="bd-example">
             <table class="table table-striped">
@@ -266,6 +258,7 @@
                     <th>美</th>
                     <th>劳</th>
                     <th>综合评分</th>
+                    <th>操作</th>
                 </tr>
                 <tr v-for="data in datas">
                     <td>{{data.id}}</td>
@@ -282,9 +275,10 @@
                         <button type="编辑用户信息" class="btn btn-sm btn-outline-secondary" @click="load(data)">
                             <span class="glyphicon glyphicon-edit">编辑用户信息</span>
                         </button>
-<%--                        <button type="删除用户" class="btn btn-sm btn-outline-secondary" @click="del(data.id);">--%>
-<%--                            <span class="glyphicon glyphicon-remove">删除用户</span>--%>
-<%--                        </button>--%>
+                        <button type="添加综合评分" class="btn btn-sm btn-outline-secondary" @click="add()">
+                            <span class="glyphicon glyphicon-edit">添加综合评分</span>
+                        </button>
+
                     </td>
             </table>
             <span>总数量：{{pages.rowCount}}</span> <span>总页数：{{pages.lastPage}}</span>
@@ -307,6 +301,58 @@
             </button>
         </div>
     </div>
+</div>
+<div>
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 初始化echarts实例 echarts.init()
+
+        // var chartDom = document.getElementById('main');
+        // var myChart = echarts.init(chartDom);
+        // var option;
+        //
+        // console.log("sss==============================================================")
+        // let data=[
+        //     {
+        //         name: '甲科室 vs 乙科室',
+        //         type: 'radar',
+        //         data: [
+        //             {
+        //                 value: [ 35000,35000 ,35000 , 35000, 50000, 18000],
+        //                 name: '甲科室'
+        //             },
+        //             {
+        //                 value: [5000, 14000, 28000, 26000, 42000, 21000],
+        //                 name: '乙科室'
+        //             }
+        //         ]
+        //     }
+        // ];
+        // option = {
+        //     title: {
+        //         text: '第一个雷达图'
+        //     },
+        //     legend: {
+        //         data: ['甲科室','乙科室']
+        //     },
+        //     radar: {
+        //         // shape: 'circle',
+        //         indicator: [
+        //             { name: '项目', max: 6500 },
+        //             { name: '建设单位', max: 16000 },
+        //             { name: '监理单位', max: 30000 },
+        //             { name: '勘察单位', max: 38000 },
+        //             { name: '房产经纪单位', max: 52000 },
+        //             { name: '物业维护单位', max: 25000 }
+        //         ]
+        //     },
+        //
+        //     series: dataList
+        // };
+        //
+        // option && myChart.setOption(option);
+    </script>
+
 </div>
 </body>
 </html>

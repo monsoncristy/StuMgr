@@ -11,7 +11,7 @@ public class StudentDaliyDAO extends DAOTemplate<StudentDaliy> {
     public StudentDaliyDAO(){
         clazz = StudentDaliy.class;
         pkColumns = new String[]{"id"};
-        comColumns = new String[]{"grade","hygiene","name","calss","awards"};
+        comColumns = new String[]{"hygiene","awards","discipline"};
         tableName = "stu_daliyperform";
         init();
     }

@@ -18,17 +18,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>管理员登录</title>
+	<title>管理员登录</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../y/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap core CSS -->
+	<link href="../y/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../y/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<link href="../y/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../y/js/ie-emulation-modes-warning.js"></script>
+	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<!--[if lt IE 9]><script src="../js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<script src="../y/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -96,39 +96,57 @@
 <body>
 
 
-	<main class="form-signin w-100 m-auto">
-		<form action="" method="post" class="form-signin">
-			<h1 class="h3 mb-3 fw-normal">登录</h1>
-			<%
-				Exception ex = (Exception) request.getAttribute("shiroLoginFailure");
-				if (ex != null) {
-			%>
-			<div class="alert alert-danger">
-				<%=ex instanceof MyAuthenticationException ? ex.getMessage() : "登录验证失败！"%>
-			</div>
-			<%
-				}
-			%>
-			<div class="form-floating">
-				<input name="username" type="text" id="username" class="form-control" placeholder=户名" required autofocus>
-				<label for="username" class="sr-only floatingInput">用户名</label>
-			</div>
+<main class="form-signin w-100 m-auto">
+	<form action="" method="post" class="form-signin">
+		<h1 class="h3 mb-3 fw-normal">登录</h1>
+		<%
+			Exception ex = (Exception) request.getAttribute("shiroLoginFailure");
+			if (ex != null) {
+		%>
+		<div class="alert alert-danger">
+			<%=ex instanceof MyAuthenticationException ? ex.getMessage() : "登录验证失败！"%>
+		</div>
+		<%
+			}
+		%>
+		<div class="form-floating">
+			<input name="username" type="text" id="username" class="form-control" placeholder=户名" required autofocus>
+			<label for="username" class="sr-only floatingInput">用户名</label>
+		</div>
 
-			<div class="form-floating">
-				<input name="password" type="password" id="password" class="form-control" placeholder="密码" required>
-				<label for="password" class="sr-only floatingPassword">密码</label>
-			</div>
+		<div class="form-floating">
+			<input name="password" type="password" id="password" class="form-control" placeholder="密码" required>
+			<label for="password" class="sr-only floatingPassword">密码</label>
+		</div>
 
-			<div class="checkbox mb-3">
-				<label>
-					<input name="rememberMe" type="checkbox" id="rememberMe" value="true">记住我
-				</label>
-			</div>
+		<div class="checkbox mb-3">
+			<label>
+				<input name="rememberMe" type="checkbox" id="rememberMe" value="true">记住我
+			</label>
+		</div>
 
-			<button class="w-100 btn btn-lg btn-primary" type="submit">登录</button>
-			<p class="mt-5 mb-3 text-muted">&copy; 2017–2022 Mr.Yang</p>
-		</form>
-	</main>
+
+		<button class="w-100 btn btn-lg btn-primary" type="submit">登录</button>
+		<ul class="navbar-nav me-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="../Result.jsp">
+					<p style="text-align: center">查询成绩</p>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="../Daliyperform.jsp">
+					<p style="text-align: center">查询平时表现</p>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="../Total.jsp">
+					<p style="text-align: center">查询综合评分</p>
+				</a>
+			</li>
+		</ul>
+		<p class="mt-5 mb-3 text-muted">&copy; 2017–2022 Mr.Yang</p>
+	</form>
+</main>
 
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

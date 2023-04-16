@@ -106,6 +106,19 @@
             }
         }
 
+        function reset(id) {
+                $.ajax({
+                    url: "resetPassword",
+                    type: "POST",
+                    data: {
+                        username: id
+                    },
+                    success: function (data) {
+                        alert(data.retMsg);
+                    }
+                });
+        }
+
         function openImportForm() {
             $('#importForm').attr("action", "importAjax");
             $('#importModalLabel').text("导入用户");
@@ -142,10 +155,17 @@
             <div class="input-group">
                 <input type="text" name="values" class="form-control" placeholder="用户名">
                 <input type="text" name="values" class="form-control" placeholder="姓名">
-                <button class="btn btn-secondary" type="button" onClick="search(1,'listAjax','searchForm', vum);"><i class="bi-search"></i> 搜索用户</button>
-                <button class="btn btn-secondary" onClick="add();" type="button"><i class="bi-plus"></i> 添加用户</button>
-                <button class="btn btn-secondary" onClick="openImportForm()" type="button"><i class="bi-folder-plus"></i> 导入用户</button>
-                <button class="btn btn-secondary" onClick="location.href='export'" type="button"><i class="bi-folder-minus"></i> 导出用户</button>
+                <button class="btn btn-secondary" type="button" onClick="search(1,'listAjax','searchForm', vum);"><i
+                        class="bi-search"></i> 搜索用户
+                </button>
+                <button class="btn btn-secondary" onClick="add();" type="button"><i class="bi-plus"></i> 添加用户
+                </button>
+                <button class="btn btn-secondary" onClick="openImportForm()" type="button"><i
+                        class="bi-folder-plus"></i> 导入用户
+                </button>
+                <button class="btn btn-secondary" onClick="location.href='export'" type="button"><i
+                        class="bi-folder-minus"></i> 导出用户
+                </button>
             </div>
         </form>
     </div>
@@ -179,7 +199,8 @@
                 <div class="modal-body p-5 pt-0">
                     <form id="addForm" method="post" action="" class="form-horizontal">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="username" name="username" placeholder="用户名">
+                            <input type="text" class="form-control rounded-3" id="username" name="username"
+                                   placeholder="用户名">
                             <label for="username">用户名</label>
                         </div>
                         <div class="form-floating mb-3">
@@ -187,15 +208,18 @@
                             <label for="name">姓名</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="classNumber" name="classNumber" placeholder="届-班号">
+                            <input type="text" class="form-control rounded-3" id="classNumber" name="classNumber"
+                                   placeholder="届-班号">
                             <label for="classNumber">届-班号</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control rounded-3" id="email" name="email" placeholder="邮箱">
+                            <input type="email" class="form-control rounded-3" id="email" name="email"
+                                   placeholder="邮箱">
                             <label for="email">邮箱</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="phone" name="phone" placeholder="手机号">
+                            <input type="text" class="form-control rounded-3" id="phone" name="phone"
+                                   placeholder="手机号">
                             <label for="phone">手机号</label>
                         </div>
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">确认添加</button>
@@ -261,9 +285,9 @@
                         <button type="编辑用户信息" class="btn btn-sm btn-outline-secondary" @click="load(data)">
                             <span class="glyphicon glyphicon-edit">编辑用户信息</span>
                         </button>
-                        <%--						<button  title="删除用户" @click="del(data.username);">--%>
-                        <%--							<span class="glyphicon glyphicon-remove">删除用户</span>--%>
-                        <%--						</button>--%>
+                        <button title="重置密码" class="btn btn-sm btn-outline-secondary" @click="reset(data.username);">
+                            <span class="glyphicon glyphicon-reset">重置密码</span>
+                        </button>
                         <button type="删除用户" class="btn btn-sm btn-outline-secondary" @click="del(data.username);">
                             <span class="glyphicon glyphicon-remove">删除用户</span>
                         </button>

@@ -82,13 +82,13 @@
 
         });
 
-        // function add() {
-        //     fillForm({});
-        //     $('#username').attr("readOnly", false);
-        //     $('#addForm').attr("action", "addAjax");
-        //     $('#title').text("添加学生");
-        //     $('#addModal').modal("toggle");
-        // }
+        function add() {
+            fillForm({});
+            $('#username').attr("readOnly", false);
+            $('#addForm').attr("action", "addResAjax");
+            $('#title').text("添加学生");
+            $('#addModal').modal("toggle");
+        }
 
         // function del(id) {
         //     if (confirm("确定删除该学生吗？")) {
@@ -134,23 +134,28 @@
             <input type="hidden" name="columns" value="grade">
             <input type="hidden" name="columns" value="calss">
             <input type="hidden" name="columns" value="name">
+            <input type="hidden" name="columns" value="test_name">
             <input type="hidden" name="operators" value="like">
             <input type="hidden" name="operators" value="like">
             <input type="hidden" name="operators" value="like">
+            <input type="hidden" name="operators" value="like">
+            <input type="hidden" name="orders" value="none">
             <input type="hidden" name="orders" value="none">
             <input type="hidden" name="orders" value="none">
             <input type="hidden" name="orders" value="none">
             <input type="hidden" name="logicalopts" value="">
             <input type="hidden" name="logicalopts" value="and">
             <input type="hidden" name="logicalopts" value="and">
+            <input type="hidden" name="logicalopts" value="and">
             <div class="input-group">
                 <input type="text" name="values" class="form-control" placeholder="届级">
                 <input type="text" name="values" class="form-control" placeholder="班级">
                 <input type="text" name="values" class="form-control" placeholder="姓名">
+                <input type="text" name="values" class="form-control" placeholder="考试">
                 <button class="btn btn-secondary" type="button" onClick="search(1,'listResAjax','searchForm', vum);"><i
                         class="bi-search"></i> 搜索学生
                 </button>
-                <%--                <button class="btn btn-secondary" onClick="add();" type="button"><i class="bi-plus"></i> 添加学生</button>--%>
+                <button class="btn btn-secondary" onClick="add();" type="button"><i class="bi-plus"></i> 添加学生</button>
                 <%--                <button class="btn btn-secondary" onClick="openImportForm()" type="button"><i class="bi-folder-plus"></i> 导入学生</button>--%>
                 <%--                <button class="btn btn-secondary" onClick="location.href='export'" type="button"><i class="bi-folder-minus"></i> 导出学生</button>--%>
             </div>
@@ -179,30 +184,23 @@
             <div class="modal-content rounded-4 shadow">
                 <div class="modal-header p-5 pb-4 border-bottom-0">
                     <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
-                    <h1 class="fw-bold mb-0 fs-2" id="title">添加学生</h1>
+                    <h1 class="fw-bold mb-0 fs-2" id="title">修改成绩</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body p-5 pt-0">
                     <form id="addForm" method="post" action="" class="form-horizontal">
-                        <div>
-                            <input type="hidden" class="form-control rounded-3" id="id" name="id" placeholder="年级">
-                            <label for="id"></label>
-                        </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="name" name="name"
-                                   placeholder="姓名">
-                            <label for="name">姓名</label>
+                            <input type="text" class="form-control rounded-3" id="id" name="id" placeholder="id">
+                            <label for="id">id</label>
                         </div>
+
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="grade" name="grade"
-                                   placeholder="年级">
-                            <label for="grade">年级</label>
+                            <input type="text" class="form-control rounded-3" id="testName" name="testName"
+                                   placeholder="考试">
+                            <label for="testName">考试</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3" id="calss" name="calss" placeholder="班级">
-                            <label for="calss">班级</label>
-                        </div>
+
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="chinese" name="chinese"
                                    placeholder="语文">
@@ -257,12 +255,6 @@
                             <label for="politics">政治</label>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input type="hidden" class="form-control rounded-3" id="allResult" name="allResult"
-                                   placeholder="总分">
-                            <label for="allResult"></label>
-                        </div>
-
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">确认添加</button>
                     </form>
                 </div>
@@ -279,7 +271,7 @@
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="importModalLabel">导入用户</h4>
+                    <h4 class="modal-title" id="importModalLabel">导入成绩</h4>
                 </div>
                 <form id="importForm" method="post" action="" enctype="multipart/form-data" class="form-horizontal">
                     <div class="modal-body">
@@ -309,6 +301,7 @@
                     <th>名字</th>
                     <th>年级</th>
                     <th>班级</th>
+                    <th>考试</th>
                     <th>语文</th>
                     <th>数学</th>
                     <th>英语</th>
@@ -326,6 +319,7 @@
                     <td>{{data.name}}</td>
                     <td>{{data.grade}}</td>
                     <td>{{data.calss}}</td>
+                    <td>{{data.test_name}}</td>
                     <td>{{data.chinese}}</td>
                     <td>{{data.math}}</td>
                     <td>{{data.english}}</td>
@@ -335,14 +329,15 @@
                     <td>{{data.history}}</td>
                     <td>{{data.geography}}</td>
                     <td>{{data.politics}}</td>
-                    <td>{{data.allResult}}</td>
+                    <td>{{data.all_result}}</td>
                     <td>
                         <button type="编辑用户信息" class="btn btn-sm btn-outline-secondary" @click="load(data)">
-                            <span class="glyphicon glyphicon-edit">编辑用户信息</span>
+                            <span class="glyphicon glyphicon-edit">修改成绩</span>
                         </button>
-                        <%--                        <button type="删除用户" class="btn btn-sm btn-outline-secondary" @click="del(data.id);">--%>
-                        <%--                            <span class="glyphicon glyphicon-remove">删除用户</span>--%>
-                        <%--                        </button>--%>
+
+                        <button type="添加用户" class="btn btn-sm btn-outline-secondary" @click="add();">
+                            <span class="glyphicon glyphicon-add">添加成绩</span>
+                        </button>
                     </td>
             </table>
             <span>总数量：{{pages.rowCount}}</span> <span>总页数：{{pages.lastPage}}</span>

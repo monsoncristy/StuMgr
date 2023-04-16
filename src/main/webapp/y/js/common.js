@@ -35,8 +35,12 @@ function search(page, url, formid, vum) {
 			page : page
 		},
 		success : function(data) {
+			console.log(data)
 			vum.datas = data.result;
 			vum.pages = data.pages;
+			vum.dataList = JSON.stringify(data.dataList);
+			console.log("vum.dataList")
+			console.log(vum.dataList)
 			columnInputs.each(function(index) {
 				$(this).val(columnNames[index]);
 			});

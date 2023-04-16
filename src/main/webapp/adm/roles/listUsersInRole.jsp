@@ -98,14 +98,21 @@
 		});
 	}
 </script>
+	<style>
+		a{
+			text-decoration: none;
+			color: #000;
+		}
+		</style>
 </head>
 <body>
 	<div class="container-fluid" align="center">
 		<p align="left">
+
 			<a href="listRoles.jsp">所有角色</a>>>
 			<a href="listUsersInRole?rid=${role.roleId}">${role.role }</a>
-			<button class="btn btn-primary" onClick="add();">添加用户</button>
-			<button class="btn btn-primary" onClick="del();">删除用户</button>
+			<button class="btn btn-secondary" onClick="add();">添加用户</button>
+			<button class="btn btn-secondary" onClick="del();">删除用户</button>
 		</p>
 		<div id="app1" class="col-sm-6">
 			<p>候选用户</p>

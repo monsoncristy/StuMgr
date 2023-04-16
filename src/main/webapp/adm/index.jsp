@@ -112,14 +112,22 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">学生管理</a>
 						<ul class="dropdown-menu">
+
 								<li><a class="dropdown-item" href="#a" data-toggle="tab"
 									   data-src="student/listStudent.jsp">学生管理</a></li>
+							<shiro:hasPermission name="xscj">
 								<li><a class="dropdown-item" href="#a" data-toggle="tab"
 									   data-src="student/listStuResult.jsp">成绩查询</a></li>
+							</shiro:hasPermission>
+							<shiro:hasPermission name="psbx">
 								<li><a class="dropdown-item" href="#a" data-toggle="tab"
 									   data-src="student/listStudentDaliy.jsp">平时表现</a></li>
+							</shiro:hasPermission>
+							<shiro:hasPermission name="zhpf">
 								<li><a class="dropdown-item" href="#a" data-toggle="tab"
-								   		data-src="student/listStudentTotal.jsp">综合评测</a></li>
+									   data-src="student/listStudentTotal.jsp">综合评测</a></li>
+							</shiro:hasPermission>
+
 						</ul>
 					</li>
 				</shiro:hasPermission>
@@ -129,13 +137,9 @@
 				<li class="nav-item">
 					<a class="nav-link" href="logout">退出</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
-				</li>
+
 			</ul>
-			<form role="search">
-				<input class="form-control" type="search" placeholder="Search" aria-label="Search">
-			</form>
+
 		</div>
 	</div>
 </nav>

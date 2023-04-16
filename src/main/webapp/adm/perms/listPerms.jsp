@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${ctx}/y/css/bootstrap.min.css">
 <link rel="stylesheet" href="${ctx}/y/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${ctx}/y/css/common.css">
+	<link rel="stylesheet" href="${ctx}/y/css/modals.css">
 <script type="text/javascript" src="${ctx}/y/js/jquery.min.js"></script>
 <script type="text/javascript" src="${ctx}/y/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="${ctx}/y/js/jquery.validate.min.js"></script>
@@ -18,7 +19,9 @@
 <script type="text/javascript" src="${ctx}/y/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${ctx}/y/js/vue.min.js"></script>
 <script type="text/javascript" src="${ctx}/y/js/common.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript" src="${ctx}/y/js/bootstrap.bundle.min.js"></script>
+
+	<script type="text/javascript">
 	var vum;
 	//var page = 1;
 
@@ -128,9 +131,9 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
+<%--						<button type="button" class="close" data-dismiss="modal"--%>
+<%--							aria-label="Close">--%>
+<%--							<span aria-hidden="true">&times;</span>--%>
 						</button>
 						<h4 class="modal-title" id="addModalLabel">添加权限</h4>
 					</div>
@@ -152,8 +155,8 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">关闭</button>
+<%--							<button type="button" class="btn btn-default"--%>
+<%--								data-dismiss="modal">关闭</button>--%>
 							<input type="submit" class="btn btn-primary" value="提交">
 						</div>
 					</form>
