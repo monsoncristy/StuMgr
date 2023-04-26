@@ -40,7 +40,6 @@
                 },
                 methods: {
                     showData: function (p) {
-                        let that = this
                         page = p;
                         search(1, 'listTotalAjax', 'searchForm', vum);
                     }
@@ -86,35 +85,6 @@
                 }
             });
 
-
-            var chartDom = document.getElementById('main');
-            var myChart = echarts.init(chartDom);
-            var option;
-            console.log(vum.dataList);
-            option = {
-                title: {
-                    text: '第一个雷达图'
-                },
-                legend: {
-                    data: ['甲科室','乙科室']
-                },
-                radar: {
-                    // shape: 'circle',
-                    indicator: [
-                        { name: '项目', max: 6500 },
-                        { name: '建设单位', max: 16000 },
-                        { name: '监理单位', max: 30000 },
-                        { name: '勘察单位', max: 38000 },
-                        { name: '房产经纪单位', max: 52000 },
-                        { name: '物业维护单位', max: 25000 }
-                    ]
-                },
-
-                series: vum.dataList
-            };
-
-            option && myChart.setOption(option);
-
         });
 
         function add() {
@@ -124,6 +94,7 @@
             $('#title').text("添加学生");
             $('#addModal').modal("toggle");
         }
+
         //
         // function del(id) {
         //     if (confirm("确定删除该学生吗？")) {
@@ -148,6 +119,7 @@
         // }
 
         function load(data) {
+            alert(data)
             $('#username').attr("readOnly", true);
             $('#addForm').attr("action", "updateTotalAjax");
             $('#title').text("修改学生信息");
@@ -155,13 +127,23 @@
             fillForm(data);
         }
 
+        function ook(data){
+            myChart.setOption({
+                title:{
+                    title:"test"
+                },
+                series: {
+                    data: data
+                }
+            })
+            console.log(data);
+        }
+
         function fillForm(obj) {
             $('#addForm input').val(function (index, value) {
                 return obj[this.id];
             });
         }
-
-
 
 
     </script>
@@ -188,13 +170,13 @@
                 <input type="text" name="values" class="form-control" placeholder="届级">
                 <input type="text" name="values" class="form-control" placeholder="班级">
                 <input type="text" name="values" class="form-control" placeholder="学号">
-                <button class="btn btn-secondary" type="button" onClick="search(1,'listAjax','searchForm', vum);"><i class="bi-search"></i> 搜索学生</button>
+                <button class="btn btn-secondary" type="button" onClick="search(1,'listAjax','searchForm', vum);"><i
+                        class="bi-search"></i> 搜索学生
+                </button>
 
             </div>
         </form>
     </div>
-
-
 
 
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
@@ -207,7 +189,7 @@
 
                         <div class="form-floating mb-3">
                             <input type="hidden">
-                            <label ></label>
+                            <label></label>
                         </div>
 
                         <div class="form-floating mb-3">
@@ -235,7 +217,6 @@
                             <input type="text" class="form-control rounded-3" id="lao" name="lao" placeholder="劳">
                             <label for="lao">劳</label>
                         </div>
-
 
 
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">确认添加</button>
@@ -278,6 +259,9 @@
                         <button type="添加综合评分" class="btn btn-sm btn-outline-secondary" @click="add()">
                             <span class="glyphicon glyphicon-edit">添加综合评分</span>
                         </button>
+                        <button type="查看" class="btn btn-sm btn-outline-secondary" @click="initChart(data)">
+                            <span class="glyphicon glyphicon-edit">查看</span>
+                        </button>
 
                     </td>
             </table>
@@ -305,52 +289,45 @@
 <div>
     <div id="main" style="width: 600px;height:400px;"></div>
     <script type="text/javascript">
-        // 初始化echarts实例 echarts.init()
+        // 初始化echarts实例
+        function initChart(data){
+            var chartDom = document.getElementById('main');
+            var myChart = echarts.init(chartDom);
+            var option;
+            option = {
+                title: {
+                    text: 'Basic Radar Chart'
+                },
+                legend: {
+                    data: 'kook'
+                },
+                radar: {
+                    // shape: 'circle',
+                    indicator: [
+                        { name: '德', max: 500 },
+                        { name: '智', max: 500 },
+                        { name: '体', max: 500 },
+                        { name: '美', max: 500 },
+                        { name: '劳', max: 500 },
+                        { name: '总', max: 500 }
+                    ]
+                },
+                series: [
+                    {
+                        name: 'kook',
+                        type: 'radar',
+                        data: [
+                            {
+                                value: [data["de"],data["zhi"],data["ti"],data["mei"],data["lao"],data["total"]],
+                                name: 'test'
+                            },
+                        ]
+                    }
+                ]
+            };
 
-        // var chartDom = document.getElementById('main');
-        // var myChart = echarts.init(chartDom);
-        // var option;
-        //
-        // console.log("sss==============================================================")
-        // let data=[
-        //     {
-        //         name: '甲科室 vs 乙科室',
-        //         type: 'radar',
-        //         data: [
-        //             {
-        //                 value: [ 35000,35000 ,35000 , 35000, 50000, 18000],
-        //                 name: '甲科室'
-        //             },
-        //             {
-        //                 value: [5000, 14000, 28000, 26000, 42000, 21000],
-        //                 name: '乙科室'
-        //             }
-        //         ]
-        //     }
-        // ];
-        // option = {
-        //     title: {
-        //         text: '第一个雷达图'
-        //     },
-        //     legend: {
-        //         data: ['甲科室','乙科室']
-        //     },
-        //     radar: {
-        //         // shape: 'circle',
-        //         indicator: [
-        //             { name: '项目', max: 6500 },
-        //             { name: '建设单位', max: 16000 },
-        //             { name: '监理单位', max: 30000 },
-        //             { name: '勘察单位', max: 38000 },
-        //             { name: '房产经纪单位', max: 52000 },
-        //             { name: '物业维护单位', max: 25000 }
-        //         ]
-        //     },
-        //
-        //     series: dataList
-        // };
-        //
-        // option && myChart.setOption(option);
+            option && myChart.setOption(option);
+        }
     </script>
 
 </div>
