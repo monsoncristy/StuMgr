@@ -36,7 +36,7 @@
                 methods: {
                     showData: function (id) {
                         $.ajax({
-                            url:"getResult",
+                            url:"getTotal",
                             type: "GET",
                             data:{
                                 id : id
@@ -63,46 +63,48 @@
 
 
 
+        function initChart(data){
+            var chartDom = document.getElementById('main');
+            var myChart = echarts.init(chartDom);
+            var option;
+            option = {
+                title: {
+                    text: 'Basic Radar Chart'
+                },
+                legend: {
+                    data: 'kook'
+                },
+                radar: {
+                    // shape: 'circle',
+                    indicator: [
+                        { name: '德', max: 100 },
+                        { name: '智', max: 100 },
+                        { name: '体', max: 100 },
+                        { name: '美', max: 100 },
+                        { name: '劳', max: 100 },
+                        //{ name: '总', max: 100 }
+                    ]
+                },
+                series: [
+                    {
+                        name: 'kook',
+                        type: 'radar',
+                        data: [
+                            {
+                                value: [data["de"],
+                                    data["zhi"],
+                                    data["ti"],
+                                    data["mei"],
+                                    data["lao"]],//,data["total"]
+                                name: 'test'
+                            },
+                        ]
+                    }
+                ]
+            };
 
-
-        // var chartDom = document.getElementById('main');
-        // var myChart = echarts.init(chartDom);
-        // var option;
-        //
-        // option = {
-        //     title: {
-        //         text: '综合评价图'
-        //     },
-        //     legend: {
-        //         data: ['甲科室']
-        //     },
-        //     radar: {
-        //         // shape: 'circle',
-        //         indicator: [
-        //             { name: '语文', max: 150 },
-        //             { name: '数学', max: 150 },
-        //             { name: '英语', max: 150 },
-        //             { name: '物理', max: 100 },
-        //             { name: '化学', max: 100 },
-        //             { name: '生物', max: 100 }
-        //         ]
-        //     },
-        //     series: [
-        //         {
-        //             name: '甲科室',
-        //             type: 'radar',
-        //             data: [
-        //                 {
-        //                     value: [1200, 1545, 20000, 35000, 50000, 18000],
-        //                     name: '综分'
-        //                 },
-        //
-        //             ]
-        //         }
-        //     ]
-        // };
-        //
-        // option && myChart.setOption(option);
+            option && myChart.setOption(option);
+        }
     </script>
 </head>
 <body>
@@ -111,6 +113,7 @@
     <h2 id="title"></h2>
     <input class="input-group-lg" placeholder="请输入你的学号。。。" type="text" id="id">
     <button class="btn btn-secondary" type="button" onclick="check()">查询成绩</button>
+
     <ul class="navbar-nav me-auto">
         <li class="nav-item">
             <a class="nav-link" href="./adm/login.jsp">
@@ -118,50 +121,41 @@
             </a>
         </li>
     </ul>
-
+    <div class="table-responsive" id="app">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th>德</th>
+                <th>智</th>
+                <th>体</th>
+                <th>美</th>
+                <th>劳</th>
+                <th>综合</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="data in datas">
+                <td>{{data.de}}</td>
+                <td>{{data.zhi}}</td>
+                <td>{{data.ti}}</td>
+                <td>{{data.mei}}</td>
+                <td>{{data.lao}}</td>
+                <td>{{data.total}}</td>
+                <td><button type="查看" class="btn btn-sm btn-outline-secondary"  @click="initChart(data)">
+                    <span class="glyphicon glyphicon-edit">查看</span>
+                </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 <div id="main" style="width: 600px;height:400px;"></div>
-<script type="text/javascript">
-    // 初始化echarts实例 echarts.init()
-    var chartDom = document.getElementById('main');
-    var myChart = echarts.init(chartDom);
-    var option;
+    <script type="text/javascript">
+        // 初始化echarts实例
 
-    option = {
-        title: {
-            text: '综合评价图'
-        },
-        legend: {
-            data: ['甲科室']
-        },
-        radar: {
-            // shape: 'circle',
-            indicator: [
-                { name: '语文', max: 150 },
-                { name: '数学', max: 150 },
-                { name: '英语', max: 150 },
-                { name: '物理', max: 100 },
-                { name: '化学', max: 100 },
-                { name: '生物', max: 100 }
-            ]
-        },
-        series: [
-            {
-                name: '甲科室',
-                type: 'radar',
-                data: [
-                    {
-                        value: [dat, data.chinese, 20000, 35000, 50000, 18000],
-                        name: '综分'
-                    },
+    </script>
 
-                ]
-            }
-        ]
-    };
-
-    option && myChart.setOption(option);
-</script>
 </div>
 </body>
 </html>

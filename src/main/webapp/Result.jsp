@@ -58,6 +58,91 @@
             alert(id);
             vum.showData(id);
         }
+
+
+
+        // function initChart(data){
+        //     var chartDom = document.getElementById('main');
+        //     var myChart = echarts.init(chartDom);
+        //     var option;
+        //
+        //     option = {
+        //         title: {
+        //             text: 'Stacked Line'
+        //         },
+        //         tooltip: {
+        //             trigger: 'axis'
+        //         },
+        //         legend: {
+        //             data: ['语文', '数学', '英语', '物理', '化学', '生物', '历史', '地理', '政治']
+        //         },
+        //         grid: {
+        //             left: '3%',
+        //             right: '4%',
+        //             bottom: '3%',
+        //             containLabel: true
+        //         },
+        //         toolbox: {
+        //             feature: {
+        //                 saveAsImage: {}
+        //             }
+        //         },
+        //         xAxis: {
+        //             type: 'category',
+        //             boundaryGap: false,
+        //             data: [
+        //                 {
+        //                     value:[data["testName"]],
+        //                     name:'testName'
+        //                 }
+        //             ]
+        //         },
+        //         yAxis: {
+        //             type: 'value'
+        //         },
+        //         series: [
+        //             {
+        //                 name: '语文',
+        //                 type: 'line',
+        //                 stack: 'Total',
+        //                 data: [
+        //                     {
+        //                         value: [data["chinese"]],
+        //                         name: 'test'
+        //                     },
+        //                 ]
+        //             },
+        //             {
+        //                 name: 'Union Ads',
+        //                 type: 'line',
+        //                 stack: 'Total',
+        //                 data: [220, 182, 191, 234, 290, 330, 310]
+        //             },
+        //             {
+        //                 name: 'Video Ads',
+        //                 type: 'line',
+        //                 stack: 'Total',
+        //                 data: [150, 232, 201, 154, 190, 330, 410]
+        //             },
+        //             {
+        //                 name: 'Direct',
+        //                 type: 'line',
+        //                 stack: 'Total',
+        //                 data: [320, 332, 301, 334, 390, 330, 320]
+        //             },
+        //             {
+        //                 name: 'Search Engine',
+        //                 type: 'line',
+        //                 stack: 'Total',
+        //                 data: [820, 932, 901, 934, 1290, 1330, 1320]
+        //             }
+        //         ]
+        //     };
+        //
+        //     option && myChart.setOption(option);
+        // }
+
+
     </script>
 </head>
 <body>
@@ -102,10 +187,127 @@
                 <td>{{data.geography}}</td>
                 <td>{{data.politics}}</td>
                 <td>{{data.allResult}}</td>
+                <td><button type="查看" class="btn btn-sm btn-outline-secondary"  @click="initChart(data)">
+                    <span class="glyphicon glyphicon-edit">查看</span>
+                </button>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
+
+
+    <div  id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+
+        function initChart(data){
+            var chartDom = document.getElementById('main');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+                title: {
+                    text: 'Stacked Line'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['语文', '数学', '英语', '物理', '化学', '生物', '历史', '地理', '政治']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: [
+                        {
+                            value:[data["testName"]],
+                            name:'testName'
+                        }
+                    ]
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        name: '语文',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [
+                            {
+                                value: [data["chinese"]],
+                                name: 'test'
+                            },
+                        ]
+                    },
+                    {
+                        name: '数学',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [data["math"]]
+                    },
+                    {
+                        name: '英语',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [data["english"]]
+                    },
+                    {
+                        name: '物理',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [data["physics"]]
+                    },
+                    {
+                        name: '化学',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [data['chemistry']]
+                    },
+                    {
+                        name: '生物',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [data['biology']]
+                    },
+                    {
+                        name: '历史',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [data['history']]
+                    },
+                    {
+                        name: '地理',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [data['geography']]
+                    },
+                    {
+                        name: '政治',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [data['politics']]
+                    }
+                ]
+            };
+
+            option && myChart.setOption(option);
+        }
+    </script>
+
+
+
 </div>
 </body>
 </html>

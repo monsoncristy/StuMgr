@@ -21,6 +21,5 @@ public class StudentTotal {
 
     public void sumAll(){
         this.total = (this.de + this.zhi + this.ti + this.mei + this.lao)/5;
-
     }
 }

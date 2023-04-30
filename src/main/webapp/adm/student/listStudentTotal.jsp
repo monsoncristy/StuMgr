@@ -36,7 +36,7 @@
                 data: {
                     datas: [],
                     pages: [],
-                    dataList: []
+                    // dataList: []
                 },
                 methods: {
                     showData: function (p) {
@@ -127,17 +127,17 @@
             fillForm(data);
         }
 
-        function ook(data){
-            myChart.setOption({
-                title:{
-                    title:"test"
-                },
-                series: {
-                    data: data
-                }
-            })
-            console.log(data);
-        }
+        // function ook(data){
+        //     myChart.setOption({
+        //         title:{
+        //             title:"test"
+        //         },
+        //         series: {
+        //             data: data
+        //         }
+        //     })
+        //     console.log(data);
+        // }
 
         function fillForm(obj) {
             $('#addForm input').val(function (index, value) {
@@ -170,7 +170,7 @@
                 <input type="text" name="values" class="form-control" placeholder="届级">
                 <input type="text" name="values" class="form-control" placeholder="班级">
                 <input type="text" name="values" class="form-control" placeholder="学号">
-                <button class="btn btn-secondary" type="button" onClick="search(1,'listAjax','searchForm', vum);"><i
+                <button class="btn btn-secondary" type="button" onClick="search(1,'listTotalAjax','searchForm', vum);"><i
                         class="bi-search"></i> 搜索学生
                 </button>
 
@@ -254,7 +254,7 @@
                     <td>{{data.total}}</td>
                     <td>
                         <button type="编辑用户信息" class="btn btn-sm btn-outline-secondary" @click="load(data)">
-                            <span class="glyphicon glyphicon-edit">编辑用户信息</span>
+                            <span class="glyphicon glyphicon-edit">修改评分</span>
                         </button>
                         <button type="添加综合评分" class="btn btn-sm btn-outline-secondary" @click="add()">
                             <span class="glyphicon glyphicon-edit">添加综合评分</span>
@@ -304,12 +304,12 @@
                 radar: {
                     // shape: 'circle',
                     indicator: [
-                        { name: '德', max: 500 },
-                        { name: '智', max: 500 },
-                        { name: '体', max: 500 },
-                        { name: '美', max: 500 },
-                        { name: '劳', max: 500 },
-                        { name: '总', max: 500 }
+                        { name: '德', max: 100 },
+                        { name: '智', max: 100 },
+                        { name: '体', max: 100 },
+                        { name: '美', max: 100 },
+                        { name: '劳', max: 100 },
+                        //{ name: '总', max: 100 }
                     ]
                 },
                 series: [
@@ -318,7 +318,7 @@
                         type: 'radar',
                         data: [
                             {
-                                value: [data["de"],data["zhi"],data["ti"],data["mei"],data["lao"],data["total"]],
+                                value: [data["de"],data["zhi"],data["ti"],data["mei"],data["lao"]],//,data["total"]
                                 name: 'test'
                             },
                         ]
